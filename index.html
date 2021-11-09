@@ -9,135 +9,144 @@
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
-    <form action="searchresult.php" name="search" method="get">
+    <form class = "searchbar" action="searchresult.php" method="get">
         <div>
-            <input type="text" id="search" placeholder="검색어를 입력하세요."/>
-            <input type="submit" value="검색"/>
+            <input class="keyword" type="text" name="search" placeholder="검색어를 입력하세요."/>
+            <input class="searchbtn" type="submit" value="검색"/>
+            <h4>인기검색어</h4>
         </div>
     </form>
-    <div>
-        <h4>인기검색어</h4>
-    </div>
-    <div>
-            <h2>구</h2>
-            <button> 전체</button>
+        <div>
+            <h3>구</h3>
+            <button id="all">전체</button>
             <button id="gangnam">강남구</button>
             <button id="mapo">마포구</button>
             <button id="songpa">송파구</button>
             <button id="yongsan">용산구</button>
             <button id="jongro">종로구</button>
-    </div>
-    <div>
-        <h2>동</h2>
+        </div>
+        <form action="searchlist.php" method="post">
+        <div>
             <div class="dong-gangnam">
-                <button>개포1동</button>
-                <button>개포2동</button>
-                <button>개포4동</button>
-                <button>논현1동</button>
-                <button>논현2동</button>
-                <button>대치1동</button>
-                <button>대치2동</button>
-                <button>대치3동</button>
-                <button>도곡1동</button>
-                <button>도곡2동</button>
-                <button>삼성1동</button>
-                <button>삼성2동</button>
-                <button>세곡동</button>
-                <button>수서동</button>
-                <button>신사동</button>
-                <button>압구정동</button>
-                <button>역삼1동</button>
-                <button>역삼2동</button>
-                <button>일원1동</button>
-                <button>일원2동</button>
-                <button>일원본동</button>
-                <button>청담동</button>
+                <h3>동</h3>
+                <input type="submit" id="a" value="전체">
+                <input type="submit" id="b" value="개포1동">
+                <input type="submit" id="c" value="개포2동">
+                <input type="submit" id="d" value="개포4동">
+                <input type="submit" id="e" value="논현1동">
+                <input type="submit" id="f" value="논현2동">
+                <input type="submit" id="g" value="대치1동">
+                <input type="submit" id="h" value="대치2동">
+                <input type="submit" id="i" value="대치3동">
+                <input type="submit" id="j" value="도곡1동">
+                <input type="submit" id="k" value="도곡2동">
+                <input type="submit" id="l" value="삼성1동">
+                <input type="submit" id="m" value="삼성2동">
+                <input type="submit" id="n" value="세곡동">
+                <input type="submit" id="o" value="수서동">
+                <input type="submit" id="p" value="신사동">
+                <input type="submit" id="q" value="압구정동">
+                <input type="submit" id="r" value="역삼1동">
+                <input type="submit" id="s" value="역삼2동">
+                <input type="submit" id="t" value="일원1동">
+                <input type="submit" id="u" value="일원2동">
+                <input type="submit" id="v" value="일원본동">
+                <input type="submit" id="w" value="청담동">
             </div>
             <div class="dong-mapo">
-                <button>공덕동</button>
-                <button>대흥동</button>
-                <button>도화동</button>
-                <button>망원제1동</button>
-                <button>망원제2동</button>
-                <button>상암동</button>
-                <button>서강동</button>
-                <button>서교동</button>
-                <button>성산제1동</button>
-                <button>성산제2동</button>
-                <button>신수동</button>
-                <button>아현동</button>
-                <button>연남동</button>
-                <button>염리동</button>
-                <button>용강동</button>
-                <button>합정동</button>
+                <h3>동</h3>
+                <input type="submit" id="a" value="전체">
+                <input type="submit" id="b" value="공덕동">
+                <input type="submit" id="c" value="대흥동">
+                <input type="submit" id="d" value="도화동">
+                <input type="submit" id="e" value="망원제1동">
+                <input type="submit" id="f" value="망원제2동">
+                <input type="submit" id="g" value="상암동">
+                <input type="submit" id="h" value="서강동">
+                <input type="submit" id="i" value="서교동">
+                <input type="submit" id="j" value="성산제1동">
+                <input type="submit" id="k" value="성산제2동">
+                <input type="submit" id="l" value="신수동">
+                <input type="submit" id="m" value="아현동">
+                <input type="submit" id="n" value="연남동">
+                <input type="submit" id="o" value="염리동">
+                <input type="submit" id="p" value="용강동">
+                <input type="submit" id="q" value="합정동">
             </div>
             <div class = "dong-yongsan">
-                <button>남영동</button>
-                <button>보광동</button>
-                <button>서빙고동</button>
-                <button>용문동</button>
-                <button>용산2가동</button>
-                <button>원효로제1동</button>
-                <button>원효로제2동</button>
-                <button>이촌제1동</button>
-                <button>이태원제1동</button>
-                <button>이태원제2동</button>
-                <button>청파동</button>
-                <button>한강로동</button>
-                <button>한남동</button>
-                <button>효창동</button>
-                <button>후암동</button>
+                <h3>동</h3>
+                <input type="submit" id="a" value="전체">
+                <input type="submit" id="b" value="남영동">
+                <input type="submit" id="c" value="보광동">
+                <input type="submit" id="d" value="서빙고동">
+                <input type="submit" id="e" value="용문동">
+                <input type="submit" id="f" value="용산2가동">
+                <input type="submit" id="g" value="원효로제1동">
+                <input type="submit" id="h" value="원효로제2동">
+                <input type="submit" id="i" value="이촌제1동">
+                <input type="submit" id="j" value="이태원제1동">
+                <input type="submit" id="k" value="이태원제2동">
+                <input type="submit" id="l" value="청파동">
+                <input type="submit" id="m" value="한강로동">
+                <input type="submit" id="n" value="한남동">
+                <input type="submit" id="o" value="효창동">
+                <input type="submit" id="p" value="후암동">
             </div>
             <div class = "dong-songpa">
-                <button>가락1동</button>
-                <button>가락2동</button>
-                <button>가락본동</button>
-                <button>거여1동</button>
-                <button>거여2동</button>
-                <button>마천1동</button>
-                <button>문정1동</button>
-                <button>문정2동</button>
-                <button>방이1동</button>
-                <button>방이2동</button>
-                <button>삼전동</button>
-                <button>석촌동</button>
-                <button>송파1동</button>
-                <button>송파2동</button>
-                <button>오금동</button>
-                <button>오륜동</button>
-                <button>잠실2동</button>
-                <button>잠실3동</button>
-                <button>잠실4동</button>
-                <button>잠실6동</button>
-                <button>잠실본동</button>
-                <button>장지동</button>
-                <button>풍납1동</button>
-                <button>풍납2동</button>
+                <h3>동</h3>
+                <input type="submit" id="a" value="전체">
+                <input type="submit" id="b" value="가락1동">
+                <input type="submit" id="c" value="가락2동">
+                <input type="submit" id="d" value="가락본동">
+                <input type="submit" id="e" value="거여1동">
+                <input type="submit" id="f" value="거여2동">
+                <input type="submit" id="g" value="마천1동">
+                <input type="submit" id="h" value="문정1동">
+                <input type="submit" id="i" value="문정2동">
+                <input type="submit" id="j" value="방이1동">
+                <input type="submit" id="k" value="방이2동">
+                <input type="submit" id="l" value="삼전동">
+                <input type="submit" id="m" value="석촌동">
+                <input type="submit" id="n" value="송파1동">
+                <input type="submit" id="o" value="송파2동">
+                <input type="submit" id="p" value="오금동">
+                <input type="submit" id="q" value="오륜동">
+                <input type="submit" id="r" value="잠실2동">
+                <input type="submit" id="s" value="잠실3동">
+                <input type="submit" id="t" value="잠실4동">
+                <input type="submit" id="u" value="잠실6동">
+                <input type="submit" id="v" value="잠실본동">
+                <input type="submit" id="w" value="장지동">
+                <input type="submit" id="x" value="풍납1동">
+                <input type="submit" id="y" value="풍납2동">
             </div>
             <div class = "dong-jongro">
-                <button>가회동</button>
-                <button>교남동</button>
-                <button>무악동</button>
-                <button>부암동</button>
-                <button>사직동</button>
-                <button>삼청동</button>
-                <button>숭인제1동</button>
-                <button>숭인제2동</button>
-                <button>종로1.2.3.4가동</button>
-                <button>종로5.6가동</button>
-                <button>창신제2동</button>
-                <button>청운효자동</button>
-                <button>평창동</button>
-                <button>혜화동</button>
+                <h3>동</h3>
+                <input type="submit" id="a" value="전체">
+                <input type="submit" id="b" value="가회동">
+                <input type="submit" id="c" value="교남동">
+                <input type="submit" id="d" value="무악동">
+                <input type="submit" id="e" value="부암동">
+                <input type="submit" id="f" value="사직동">
+                <input type="submit" id="g" value="삼청동">
+                <input type="submit" id="h" value="숭인제1동">
+                <input type="submit" id="i" value="숭인제2동">
+                <input type="submit" id="j" value="종로1.2.3.4가동">
+                <input type="submit" id="k" value="종로5.6가동">
+                <input type="submit" id="l" value="창신제2동">
+                <input type="submit" id="m" value="청운효자동">
+                <input type="submit" id="n" value="평창동">
+                <input type="submit" id="o" value="혜화동">
+            </div>
         </div>
-    </div>
+        </form>
     <form>
         <div>
-        <input type="button" value="마이페이지" onclick="location.href='mypage.html'">
-        <input type="button" value="리뷰" onclick="location.href='review.html'">
-        <input type="button" value="착한가격식당" onclick="location.href='nice.html'">
-        <input type="button" value="순위" onclick="location.href='rank.html'">
-    </div>
+            <input type="button" value="마이페이지" onclick="location.href='mypage.html'">
+            <input type="button" value="리뷰" onclick="location.href='reviewAll.html'">
+            <input type="button" value="착한가격식당" onclick="location.href='kind_price.html'">
+            <input type="button" value="순위" onclick="location.href='ranking.html'">
+        </div>
     </form>
 </body>
 </html>
