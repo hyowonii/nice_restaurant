@@ -8,7 +8,6 @@ const dong_mapo = document.querySelector(".dong-mapo");
 
 const songpa = document.querySelector("#songpa");
 const dong_songpa = document.querySelector(".dong-songpa");
-<<<<<<< HEAD
 
 const yongsan = document.querySelector("#yongsan");
 const dong_yongsan = document.querySelector(".dong-yongsan");
@@ -17,14 +16,6 @@ const jongro = document.querySelector("#jongro");
 const dong_jongro = document.querySelector(".dong-jongro");
 
 const searching = search.prototype;
-=======
-
-const yongsan = document.querySelector("#yongsan");
-const dong_yongsan = document.querySelector(".dong-yongsan");
-
-const jongro = document.querySelector("#jongro");
-const dong_jongro = document.querySelector(".dong-jongro");
->>>>>>> c9efac2f369ca0b2172254d6e546fd508abea270
 
 function search(){
     this.keyword = document.querySelector('input[name="search"]');
@@ -36,7 +27,6 @@ dong_gangnam.addEventListener('click', ()=>{
 
 gangnamcnt=0;
 gangnam.addEventListener('click', ()=>{
-<<<<<<< HEAD
     if (gangnamcnt === 0){
         if (jongrocnt===1 || songpacnt===1 || yongsancnt===1 || mapocnt===1);
         else{ 
@@ -104,23 +94,7 @@ jongro.addEventListener('click', ()=>{
         jongrocnt=0;
     }
 });
-=======
-    dong_gangnam.style.display = 'initial';
-});
-mapo.addEventListener('click', ()=>{
-    dong_mapo.style.display = 'initial';
-});
-songpa.addEventListener('click', ()=>{
-    dong_songpa.style.display = 'initial';
-});
-yongsan.addEventListener('click', ()=>{
-    dong_yongsan.style.display = 'initial';
-});
-jongro.addEventListener('click', ()=>{
-    dong_jongro.style.display = 'initial';
-});
 
 function searchResult(){
     window.location.href = 'searchlist.html';
 };
->>>>>>> c9efac2f369ca0b2172254d6e546fd508abea270
