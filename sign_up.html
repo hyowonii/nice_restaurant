@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+</head>
+<body>
+    <body>
+        <div id="header">
+            <h1>SIGN UP</h1>
+        </div>
+        <div id="wrapper">
+            <div id="content">
+                <div>
+                    <h3 class="setID"><label for="id">ID</label></h3>
+                        <input type="text" id="id" class="int" maxlength="20">
+                </div>
+                <div>
+                    <h3 class="setPW"><label for="password">PASSWORD</label></h3>
+                        <input type="text" id="password" class="int" maxlength="20">
+                </div>
+                <div>
+                    <h3 class="join_title"><label for="name">NAME</label></h3>
+                        <input type="text" id="name" class="int" maxlength="20">
+                </div>
+                <div>
+                    <h3 class="setBday"><label for="yy">DATE OF BIRTH</label></h3>
+                    <div id="bir_wrap">
+                        <div id="bir_yy">
+                            <span class="box">
+                                <input type="text" id="year" class="int" maxlength="4" placeholder="Year(4)">
+                            </span>
+                        </div>
+                        <div id="bir_mm">
+                            <span class="box">
+                                <select id="month" class="sel">
+                                    <option>Month</option>
+                                    <option value="01">1</option>
+                                    <option value="02">2</option>
+                                    <option value="03">3</option>
+                                    <option value="04">4</option>
+                                    <option value="05">5</option>
+                                    <option value="06">6</option>
+                                    <option value="07">7</option>
+                                    <option value="08">8</option>
+                                    <option value="09">9</option>                                    
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                </select>
+                            </span>
+                        </div>
+                        <div id="bir_dd">
+                            <span class="box">
+                                <input type="text" id="day" class="int" maxlength="2" placeholder="Day">
+                            </span>
+                        </div>
+                <div>
+                    <h3 class="setGender"><label for="gender">GENDER</label></h3>
+                    <span class="box gender_code">
+                        <select id="gender" class="select">
+                            <option value="M">Male</option>
+                            <option value="F">Female</option>
+                        </select>                            
+                </div>
+                <div class="join">
+                    <form method="get" action="login.html">
+                      <p><input type="submit" id="join" value="JOIN">
+                    </form>
+                </div>
+            </div> 
+        </div> 
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel='stylesheet' href="star.css"/>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Detail</title>
+</head>
+<body>
+    <div><h2>Restaurant: </h2>
+    <h4>main menu: </h4>
+    <h4>tel: </h4>
+    <h4>address: </h4>
+    <h4>food: </h4>
+    <h4>total: </h4>
+    </div>
+    <div>
+      <a href="#" onclick="window.open('login.html','name','resizable=no width=400 height=700');return false">login</a>
+    </div>
+    <div>
+        <form>
+        <label for="forReview">Write your review:</label><br>
+        <span class="star">
+            ★★★★★
+            <span>★★★★★</span>
+            <input type="range" oninput="drawStar(this)" value="1" step="1" min="0" max="10">
+          </span>
+            <script>const drawStar = (target) => {
+                document.querySelector(`.star span`).style.width = `${target.value * 10}%`;
+              }</script>
+        <p><textarea id="review"  rows="7" cols="100">로그인 후 이용해주세요.
+        </textarea></p>
+        <p><input type="submit" value="작성하기"></p>
+        </form>
+    </div>
+    </body>
+</html>
