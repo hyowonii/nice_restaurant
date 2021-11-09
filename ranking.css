@@ -1,4 +1,97 @@
-#res_cnt{
-    width: 30%;
-    height: 100%;
+.main_content{
+    float: left;
+    width: 80%;
+}
+
+.rank #res_cnt{
+    float: left;
+    width: 33%
+}
+
+.rank #review{
+    float: left;
+    width: 33%
+}
+
+.rank #star{
+    float: left;
+    width: 33%
+}
+
+.rank h3{
+    text-align: center;
+}
+
+/* chart =====================================*/
+.hGraph{
+    margin: 50px 20px 50px 20px;
+}
+.hGraph ul{ 
+    margin:0 50px 0 50px; 
+    padding:1px 0 0 0; 
+    border:1px solid #ddd; border-top:0; border-bottom:0; border-right:0; 
+    font-size:15px;
+    list-style:none;
+}
+.hGraph li{ 
+    position:relative; 
+    margin:20px 0; 
+    white-space:nowrap; 
+    vertical-align:top;
+}
+.hGraph .gTerm{ 
+    position:absolute; 
+    width:40px; top:0; left:-50px; 
+    line-height:20px; 
+    text-align:right; 
+    color:#767676; 
+    font-weight:bold;
+}
+.hGraph .gBar{ 
+    position:relative; 
+    display:inline-block; 
+    height:20px;
+     border:1px solid #ccc; border-left:0; 
+     background:#e9e9e9;
+    }
+.hGraph .gBar span{ 
+    position:absolute; 
+    width:40px; 
+    line-height:20px; 
+    top:0; right:-50px; 
+    color:#767676;
+}
+/*============================================*/
+
+#review ul li{
+    padding: 10px 0 10px 0;
+}
+
+#star ul li{
+    padding: 10px 0 10px 0;
+}
+
+#line{
+    display: block;
+    width:1px;
+    background-color: gray;
+    position:absolute;
+    top:0;
+    bottom:0;
+    right: 210px;
+}
+
+form{
+    float: right;
+}
+
+.mymenu{
+    float: right;
+    width: 100px;
+    margin: 20px 50px 0 50px;
+}
+
+.mymenu input{
+    width: 100px;
+    margin: 10px;
 }
