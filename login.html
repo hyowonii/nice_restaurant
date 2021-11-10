@@ -5,27 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="stylesheet" href="login.css">
 </head>
 <body>
-    <div class="loginWindow">
-        <div class="login">
-            <h1>LOGIN</h1>
-            </div>
-            <div class="loginId">
-                <h3>ID</h3>
-                <input type="text" id="id" placeholder="ID">
-            </div>
-            <div class="loginPw">
-                <h3>PASSWORD</h3>
-                <input type="password" id="password" placeholder="Password">
-            </div>
-            <div class="signUp">
-                <a href ="sign_up.html">SIGN UP</a>
-            </div>
-            <div class="submit">
-                  <input type="submit" value="LOGIN" onclick="window.close();">
-            </div>
+    <section>
+        <div id="main">
+            <h1>SIGN IN</h1>
+            <!-- <form action="login.php" method="post"> -->
+                <div id="login_idpw">
+                    <h3>ID</h3><input type="text" id="id" placeholder="ID">
+                    <h3>PASSWORD</h3><input type="password" id="pass" placeholder="Password">
+                </div>
+                <div id="signup">
+                    <a href="#" onclick="window.open('sign_up.html','name','resizable=no width=400 height=700');return false">SIGN UP</a>
+                </div>
+                </div>
+                <div id="loginbtn">
+                    <input type="submit" value="LOGIN" onclick="goBack();"> 
+                </div>
+            <!--</form>-->
         </div>
-    </div>
+    </section>
+    <script>
+        function goBack(){
+            window.history.back();
+        }
+    </script>
+   
 </body>
 </html>

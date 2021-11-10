@@ -66,11 +66,16 @@
                         </select>                            
                 </div>
                 <div class="join">
-                    <form method="get" action="login.html">
-                      <p><input type="submit" id="join" value="JOIN">
-                    </form>
+                <form id="join" onsubmit="goback()">
+                    <input type="submit" id="join" value="JOIN">
+                </form>
                 </div>
             </div> 
         </div> 
+        <script>
+            function goback(){
+                window.close();
+            }
+        </script>
 </body>
 </html>

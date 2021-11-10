@@ -1,0 +1,16 @@
+#main{width: 250px; margin: 0 auto;}
+ 
+/* 로그인 제목줄 글씨 설정과 아래쪽 경계선 */
+h1{margin: 50px 0 0 0; padding-bottom: 5px; border-bottom: solid 2px #ffbe10; font-size: 20px; font-weight: bold;}
+ 
+/* 로그인 제목줄과 인풋영역 사이의 간격 */
+#login_idpw{margin-top: 20px;}
+ 
+/* input요소 사이즈 */
+#main input{width: 250px; height: 50px;}
+ 
+/* 로그인 버튼  */
+#main #loginbtn {margin-top: 15px; margin-bottom: 50px;}
+
+ 
+ 
