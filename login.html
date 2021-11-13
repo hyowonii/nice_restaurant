@@ -6,31 +6,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="login.css">
+    <script>
+        function checkValue(){
+            if(!document.signIn.id.value&&document.signIn.pass.value){
+                alert("Please enter your ID and Password");
+                document.signIn.focus();
+                return false;
+            }else if(!document.signIn.id.value){
+                alert("Please enter your ID");
+                document.signIn.focus();
+                return false;
+            }else if(!document.signIn.pass.value){
+                alert("Please enter your Password");
+                document.signIn.focus();
+                return false;
+            }else return true;
+        }
+    </script>
 </head>
 <body>
     <section>
         <div id="main">
             <h1>SIGN IN</h1>
-            <!-- <form action="login.php" method="post"> -->
+            <form name="sighIn" onsubmit="return checkValue();" action="login.php" method="post"> 
                 <div id="login_idpw">
-                    <h3>ID</h3><input type="text" id="id" placeholder="ID">
-                    <h3>PASSWORD</h3><input type="password" id="pass" placeholder="Password">
+                    <h3>ID</h3><input type="text" id="id" name="id" placeholder="ID">
+                    <h3>PASSWORD</h3><input type="password" id="pass" name="pass" placeholder="Password">
                 </div>
                 <div id="signup">
                     <a href="#" onclick="window.open('sign_up.html','name','resizable=no width=400 height=700');return false">SIGN UP</a>
                 </div>
-                </div>
                 <div id="loginbtn">
-                    <input type="submit" value="LOGIN" onclick="goBack();"> 
+                    <input type="submit" value="LOGIN"> 
                 </div>
-            <!--</form>-->
+            </form>
         </div>
     </section>
-    <script>
-        function goBack(){
-            window.history.back();
-        }
-    </script>
-   
+    
 </body>
 </html>

@@ -1,3 +1,53 @@
+header{
+    height: 210px;
+    margin: auto;
+    text-align: center;
+}
+nav{display: inline-block;}
+
+#line{
+    display: block;
+    width:1px;
+    background-color: gray;
+    position:absolute;
+    top: 210px;
+    bottom:0;
+    right: 210px;
+}
+aside{
+    width: 210px;
+    float: right;
+    text-align: center;
+}
+aside div{
+    text-align: center;
+}
+aside div input{
+    display: block;
+    width: 100px;
+    margin: 10px auto;
+}
+section{
+    float: left;
+    margin: 20px auto;
+}
+
+a:link{color: blue;}
+a:visited{color: blue;}
+a:hover{
+    color:cadetblue;
+    text-decoration: underline;
+}
+a:active{color: blue;}
+a{text-decoration: none;}
+
+dt{float: left;}
+.hot_keyword dd{
+    display: inline;
+}
+.dong{
+    width: 1000px;
+}
 .dong-gangnam{
     display:none;
 }
@@ -15,8 +65,15 @@
 }
 
 .searchbtn{
-    font-size: 1.1rem;
+    top: 0;
+    bottom: 0;
+    width: 50px;
+    height: 50px;
+    font-size:medium;
 }
 .keyword{
-    font-size: 1.125rem;
+    width: 400px;
+    height: 45px;
+    font-size:medium;
 }
+

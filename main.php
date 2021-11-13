@@ -9,14 +9,39 @@
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
-    <form class = "searchbar" action="searchresult.php" method="get">
+    <header>
+        <h1><a href="/index.html">웹사이트 이름</a></h1>
+    <nav>
+    <?php
+            $mysqli = mysqli_connect("localhost", "team08", "team08", "team08");
+            $add_keyword = $_POST['search'];
+            if (isset ($add_keyword)){
+                $sql_addKeyword = "INSERT INTO searchkey VALUES ('$add_keyword');";
+                mysqli_query($mysqli, $add_keyword);
+            }
+            ?>
+    <form class = "searchbar" action="searchlist.php" method="post">
         <div>
             <input class="keyword" type="text" name="search" placeholder="검색어를 입력하세요."/>
             <input class="searchbtn" type="submit" value="검색"/>
-            <h4>인기검색어</h4>
+        </div>
+        <div>
+        <dl class="hot_keyword">
+            <dt>인기검색어</dt>
+            <?php
+            $sql_key = "SELECT searchKey COUNT(*) as cnt FROM searchkey GROUP BY searchKey ORDER BY cnt DESC;";
+            $sql_res = mysqli_query($mysqli, $sql_key);
+            while ($sql_row = mysqli_fetch_array($sql_res)){
+                echo '<dd><input type="submit" value="'.$sql_row['searchKey'].'"></dd>"';
+            }
+            ?>
+        </dl>
         </div>
     </form>
-        <div>
+    </nav>
+    </header>
+    <section>
+        <div class="gu">
             <h3>구</h3>
             <button id="all">전체</button>
             <button id="gangnam">강남구</button>
@@ -25,8 +50,8 @@
             <button id="yongsan">용산구</button>
             <button id="jongro">종로구</button>
         </div>
-        <form action="searchlist.php" method="post">
-        <div>
+        <form action="searchlist.html" method="post">
+        <div class="dong">
             <div class="dong-gangnam">
                 <h3>동</h3>
                 <input type="submit" id="a" value="전체">
@@ -140,13 +165,17 @@
             </div>
         </div>
         </form>
-    <form>
-        <div>
+        </section>
+        <div id="line"></div>
+    <aside>
+    <form id="menu">
+        <div class="mymenu">
             <input type="button" value="마이페이지" onclick="location.href='mypage.html'">
             <input type="button" value="리뷰" onclick="location.href='review.html'">
             <input type="button" value="착한가격식당" onclick="location.href='kind_price.html'">
             <input type="button" value="순위" onclick="location.href='ranking.html'">
         </div>
     </form>
+    </aside>
 </body>
 </html>
