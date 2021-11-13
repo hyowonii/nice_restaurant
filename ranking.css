@@ -3,6 +3,11 @@
     width: 80%;
 }
 
+.main_content h1 a[href]{
+    color: orange;
+    text-decoration-line: none;
+}
+
 .rank #res_cnt{
     float: left;
     width: 33%
@@ -78,7 +83,7 @@
     position:absolute;
     top:0;
     bottom:0;
-    right: 210px;
+    right: 20%;
 }
 
 form{
@@ -87,8 +92,8 @@ form{
 
 .mymenu{
     float: right;
-    width: 100px;
-    margin: 20px 50px 0 50px;
+    width: 200px;
+    
 }
 
 .mymenu input{

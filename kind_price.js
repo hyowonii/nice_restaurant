@@ -10,19 +10,14 @@ const japaneseBtn = document.querySelector("#japanese");
 
 const restaurantList = document.querySelector("#restaurant-list");
 
-function createList(btn) {
-    /*업소명
-    업태명
-    주소
-    전화번호
-    자랑거리*/
+function createList(btn){
     
-}
+};
 
 allcnt = 0;
 all.addEventListener('click', () => {
     if(allcnt === 0) {
-        createList(all);
+        //createList(all);
         restaurantList.style.display = 'initial';
         allcnt = 1;
     } else {
@@ -34,7 +29,7 @@ all.addEventListener('click', () => {
 gangnamcnt = 0;
 gangnamBtn.addEventListener('click', () => {
     if(gangnamcnt === 0) {
-        createList(gangnamBtn);
+        //createList(gangnamBtn);
         restaurantList.style.display = 'initial';
         gangnamcnt = 1;
     } else {
@@ -46,7 +41,7 @@ gangnamBtn.addEventListener('click', () => {
 mapocnt = 0;
 mapoBtn.addEventListener('click', () => {
     if(mapocnt === 0) {
-        createList(mapoBtn);
+        //createList(mapoBtn);
         restaurantList.style.display = 'initial';
         mapocnt = 1;
     } else {
@@ -58,7 +53,7 @@ mapoBtn.addEventListener('click', () => {
 songpacnt = 0;
 songpaBtn.addEventListener('click', () => {
     if(songpacnt === 0) {
-        createList(songpaBtn);
+        //createList(songpaBtn);
         restaurantList.style.display = 'initial';
         songpacnt = 1;
     } else {
@@ -70,7 +65,7 @@ songpaBtn.addEventListener('click', () => {
 yongsancnt = 0;
 yongsanBtn.addEventListener('click', () => {
     if(yongsancnt === 0) {
-        createList(yongsanBtn);
+        //createList(yongsanBtn);
         restaurantList.style.display = 'initial';
         yongsancnt = 1;
     } else {
@@ -82,7 +77,7 @@ yongsanBtn.addEventListener('click', () => {
 jongrocnt = 0;
 jongroBtn.addEventListener('click', () => {
     if(jongrocnt === 0) {
-        createList(jongroBtn);
+        //createList(jongroBtn);
         restaurantList.style.display = 'initial';
         jongrocnt = 1;
     } else {
@@ -94,7 +89,7 @@ jongroBtn.addEventListener('click', () => {
 koreancnt = 0;
 koreanBtn.addEventListener('click', () => {
     if(koreancnt === 0) {
-        createList(koreanBtn);
+        //createList(koreanBtn);
         restaurantList.style.display = 'initial';
         koreancnt = 1;
     } else {
@@ -106,7 +101,7 @@ koreanBtn.addEventListener('click', () => {
 chinesecnt = 0;
 chineseBtn.addEventListener('click', () => {
     if(chinesecnt === 0) {
-        createList(chineseBtn);
+        //createList(chineseBtn);
         restaurantList.style.display = 'initial';
         chinesecnt = 1;
     } else {
@@ -118,7 +113,7 @@ chineseBtn.addEventListener('click', () => {
 japanesecnt = 0;
 japaneseBtn.addEventListener('click', () => {
     if(japanesecnt === 0) {
-        createList(japaneseBtn);
+        //createList(japaneseBtn);
         restaurantList.style.display = 'initial';
         japanesecnt = 1;
     } else {
