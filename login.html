@@ -8,19 +8,16 @@
     <link rel="stylesheet" href="login.css">
     <script>
         function checkValue(){
-            if(!document.signIn.id.value&&document.signIn.pass.value){
+            if(!id.value&&!pass.value){
                 alert("Please enter your ID and Password");
-                document.signIn.focus();
                 return false;
-            }else if(!document.signIn.id.value){
+            }else if(!id.value){
                 alert("Please enter your ID");
-                document.signIn.focus();
                 return false;
-            }else if(!document.signIn.pass.value){
+            }else if(!pass.value){
                 alert("Please enter your Password");
-                document.signIn.focus();
                 return false;
-            }else return true;
+            }
         }
     </script>
 </head>
@@ -28,10 +25,10 @@
     <section>
         <div id="main">
             <h1>SIGN IN</h1>
-            <form name="sighIn" onsubmit="return checkValue();" action="login.php" method="post"> 
+            <form action="login.php" method="post" onsubmit="return checkValue();">
                 <div id="login_idpw">
-                    <h3>ID</h3><input type="text" id="id" name="id" placeholder="ID">
-                    <h3>PASSWORD</h3><input type="password" id="pass" name="pass" placeholder="Password">
+                    <h3>ID</h3><input type="text" id="id" placeholder="ID">
+                    <h3>PASSWORD</h3><input type="password" id="pass" placeholder="Password">
                 </div>
                 <div id="signup">
                     <a href="#" onclick="window.open('sign_up.html','name','resizable=no width=400 height=700');return false">SIGN UP</a>
@@ -42,6 +39,5 @@
             </form>
         </div>
     </section>
-    
 </body>
 </html>
