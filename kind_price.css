@@ -3,7 +3,7 @@
     width: 80%;
 }
 
-.main_content h1 a[href]{
+h1 a[href]{
     color: orange;
     text-decoration-line: none;
 }
@@ -20,10 +20,6 @@
 #choose .foodtype{
     float: left;
     width: 50%
-}
-
-#restaurant-list{
-    display: none;
 }
 
 #line{
