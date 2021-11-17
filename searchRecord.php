@@ -5,30 +5,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="searchList.css">
+    <link rel="stylesheet" href="searchlist.css">
 </head>
 <body>
+<?php
+    $keyword = $_POST['searchKey'];
+    if (!$keyword){
+        echo"
+            <script>
+            alert('검색어를 입력하세요');
+            history.back();
+            </script>
+        ";
+        exit();
+    } else {
+        $mysqli = mysqli_connect("localhost", "team08", "team08", "team08");
+        $sql = "INSERT INTO searchKey (searchKeyword) VALUES ('$keyword'); ";
+        mysqli_query($mysqli, $sql);
+    }
+?>
 <header>
     <h1><a href="/main.php">웹사이트 이름</a></h1>
-    <nav><h4>
-        <?php
-    $mysqli = mysqli_connect("localhost", "team08", "team08", "team08");
-    if (array_key_exists('gu_all',$_POST)){
-        $sql_search = "SELECT restName, restType, restAddr FROM restaurant;";
-    } else if (array_key_exists('gangnam_all',$_POST)){
-        $sql_search = "SELECT restName, restType, restAddr FROM restaurant AS r, guinfo AS g WHERE g.guName='강남구' AND r.guCode=g.guCode";
-    } else if (array_key_exists('mapo_all',$_POST)){
-        $sql_search = "SELECT restName, restType, restAddr FROM restaurant AS r, guinfo AS g WHERE g.guName='마포구' AND r.guCode=g.guCode";
-    } else if (array_key_exists('songpa_all',$_POST)){
-        $sql_search = "SELECT restName, restType, restAddr FROM restaurant AS r, guinfo AS g WHERE g.guName='송파구' AND r.guCode=g.guCode";
-    } else if (array_key_exists('yongsan_all',$_POST)){
-        $sql_search = "SELECT restName, restType, restAddr FROM restaurant AS r, guinfo AS g WHERE g.guName='용산구' AND r.guCode=g.guCode";
-    } else if (array_key_exists('jongro_all',$_POST)){
-        $sql_search = "SELECT restName, restType, restAddr FROM restaurant AS r, guinfo AS g WHERE g.guName='종로구' AND r.guCode=g.guCode";
-    } else {
-        $local = $_POST['dong'];
-        $sql_search = "SELECT restName, restType, restAddr FROM restaurant WHERE dongName='".$local."';";
-    }
+    <nav><h4><?php
+    $sql_search = "SELECT restName, restType, restAddr FROM restaurant WHERE restMain='".$keyword."' OR restType='".$keyword."' OR restName='".$keyword."';";
     $res = mysqli_query($mysqli, $sql_search);
     $number_of_rows = mysqli_num_rows($res);
     echo "총 ".$number_of_rows."개의 모범음식점이 검색되었습니다.";

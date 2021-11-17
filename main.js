@@ -15,16 +15,6 @@ const dong_yongsan = document.querySelector(".dong-yongsan");
 const jongro = document.querySelector("#jongro");
 const dong_jongro = document.querySelector(".dong-jongro");
 
-const searching = search.prototype;
-
-function search(){
-    this.keyword = document.querySelector('input[name="search"]');
-    this.searchbtn = document.querySelector('.searchbtn');
-}
-dong_gangnam.addEventListener('click', ()=>{
-    
-});
-
 gangnamcnt=0;
 gangnam.addEventListener('click', ()=>{
     if (gangnamcnt === 0){
@@ -94,7 +84,3 @@ jongro.addEventListener('click', ()=>{
         jongrocnt=0;
     }
 });
-
-function searchResult(){
-    window.location.href = 'searchlist.html';
-};

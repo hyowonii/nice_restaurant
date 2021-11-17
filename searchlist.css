@@ -21,13 +21,16 @@ a{text-decoration: none;}
     color: #3673ee;
     vertical-align: baseline;
 }
-.result_box span{
-    display: inline-block;
-}
 .result_box .info_address{
     color: #979797;
 }
-
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
 #line{
     display: block;
     width:1px;
