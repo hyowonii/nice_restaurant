@@ -7,11 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="main.js" defer></script>
-    <style>
-        form{
-            display: inline-block;
-        }
-    </style>
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
@@ -68,7 +63,7 @@
                             $guCode = $newArray['guCode'];
                             echo "<form action='searchlist.php' method='post'>";
                             echo "<input type = 'hidden' name = 'dong' value ='".$dongName."'>";
-                            echo "<input type = 'submit' value = '".$dongName."' style = 'margin-right: 4px'></form>";
+                            echo "<input type = 'submit' value = '".$dongName."'></form>";
                         }
                     }
                 ?>
@@ -87,7 +82,7 @@
                             $guCode = $newArray['guCode'];
                             echo "<form action='searchlist.php' method='post'>";
                             echo "<input type = 'hidden' name = 'dong' value ='".$dongName."'>";
-                            echo "<input type = 'submit' value = '".$dongName."'style = 'margin-right: 4px'></form>";
+                            echo "<input type = 'submit' value = '".$dongName."'></form>";
                         }
                     }
                 ?>
@@ -106,7 +101,7 @@
                             $guCode = $newArray['guCode'];
                             echo "<form action='searchlist.php' method='post'>";
                             echo "<input type = 'hidden' name = 'dong' value ='".$dongName."'>";
-                            echo "<input type = 'submit' value = '".$dongName."'style = 'margin-right: 4px'></form>";
+                            echo "<input type = 'submit' value = '".$dongName."'></form>";
                         }
                     }
                 ?>
@@ -126,7 +121,7 @@
                             $guCode = $newArray['guCode'];
                             echo "<form action='searchlist.php' method='post'>";
                             echo "<input type = 'hidden' name = 'dong' value ='".$dongName."'>";
-                            echo "<input type = 'submit' value = '".$dongName."'style = 'margin-right: 4px'></form>";
+                            echo "<input type = 'submit' value = '".$dongName."'></form>";
                         }
                     }
                 ?>
@@ -145,7 +140,7 @@
                             $guCode = $newArray['guCode'];
                             echo "<form action='searchlist.php' method='post'>";
                             echo "<input type = 'hidden' name = 'dong' value ='".$dongName."'>";
-                            echo "<input type = 'submit' value = '".$dongName."'style = 'margin-right: 4px'></form>";
+                            echo "<input type = 'submit' value = '".$dongName."'></form>";
                         }
                     }
                 ?>
@@ -156,9 +151,9 @@
     <aside>
     <form id="menu">
         <div class="mymenu">
-            <input type="button" value="마이페이지" onclick="location.href='mypage.html'">
-            <input type="button" value="리뷰" onclick="location.href='review.html'">
-            <input type="button" value="착한가격식당" onclick="location.href='kind_price.html'">
+            <input type="button" value="마이페이지" onclick="location.href='mypage.php'">
+            <input type="button" value="리뷰" onclick="location.href='review2.php'">
+            <input type="button" value="착한가격식당" onclick="location.href='kind_price2.php'">
             <input type="button" value="순위" onclick="location.href='ranking.html'">
         </div>
     </form>

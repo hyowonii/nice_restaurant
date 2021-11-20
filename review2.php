@@ -4,8 +4,9 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="review.css">
+        <link rel="stylesheet" href="review.css?after">
         <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
+        <?php include "header.php";?>
         <title>Document</title>
     </head>
     <body>
@@ -31,12 +32,7 @@
                         <input type="submit" id="japanese" value="경양식일식" name="japanese"></button>
                     </div>
                 </div>
-<<<<<<< HEAD
                 
-=======
-                <div class="restaurant-list">
-                </div>
->>>>>>> 2237e22a0ca92a8169cfa0c44884b6a0db49133d
             </form>
         </div>
 
@@ -45,8 +41,8 @@
         <form>
             <div class="mymenu">
                 <input type="button" value="마이페이지" onclick="location.href='mypage.html'">
-                <input type="button" value="리뷰" onclick="location.href='review.html'">
-                <input type="button" value="착한가격식당" onclick="location.href='kind_price.html'">
+                <input type="button" value="리뷰" onclick="location.href='review2.php'">
+                <input type="button" value="착한가격식당" onclick="location.href='kind_price2.php'">
                 <input type="button" value="순위" onclick="location.href='ranking.php'">
             </div>
         </form>
