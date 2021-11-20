@@ -26,13 +26,13 @@
     
     if($sel1=="region"){
         $sql="SELECT * from review where guName='$sel' && id='$id'"; 
-    }if($sel=="최신순"){
+    }else if($sel=="최신순"){
         $sql="SELECT * from review where id='$id' order by date DESC"; 
-    }if($sel=="오래된순"){
+    }else if($sel=="오래된순"){
         $sql="SELECT * from review where id='$id' order by date "; 
-    }if($sel=="별점높은순"){
+    }else if($sel=="별점높은순"){
         $sql="SELECT * from review where id='$id' order by starPoint DESC";
-    }if($sel=="별점낮은순"){
+    }else if($sel=="별점낮은순"){
         $sql="SELECT * from review where id='$id' order by starPoint ";
     }else{
         $sql="SELECT * from review where restType='$sel'&& id='$id' ";
@@ -40,7 +40,7 @@
    
     $res=mysqli_query($mysqli,$sql);
     if($res){
-        while($newArray=mysqli_fetch_array($res,MYSQLI_ASSOC)){
+        while($newArray=mysqli_fetch_array($res)){
             echo "</br>".$newArray['id']."님의 리뷰</br> 가게명: ";
             echo $newArray['restName']."&nbsp구: ";
             echo $newArray['guName']."&nbsp상세리뷰: ";

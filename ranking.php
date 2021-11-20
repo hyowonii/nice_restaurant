@@ -7,17 +7,19 @@
         <title>Document</title>
         <link rel="stylesheet" href="ranking.css?after">
         <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
+        <?php include "header.php";?>
     </head>
     <body>
         <?php
         $mysqli = mysqli_connect("localhost", "team08", "team08", "team08");
 
         // 리뷰 개수 상위 10개
-        $sql_r = "SELECT restName,COUNT(restName) AS cnt FROM review GROUP BY restName ORDER BY cnt DESC limit 10";
+        $sql_r = "SELECT restName,COUNT(restName) as cnt FROM review GROUP BY restName ORDER BY cnt DESC limit 10";
         $res_r = mysqli_query($mysqli, $sql_r);
 
         $reviewRank=[];
         $rank = 0;
+        if ($res_r)
         while($rank < 10){
             $reviewRank[$rank++] = mysqli_fetch_array($res_r);
         };
@@ -32,11 +34,12 @@
         };
 
         // 별점 평균 점수 상위 10개
-        $sql_s = "SELECT restName,AVG(star) as avg FROM review GROUP BY restName ORDER BY avg DESC limit 10";
+        $sql_s = "SELECT restName,AVG(starPoint) as avg FROM review GROUP BY restName ORDER BY avg DESC limit 10";
         $res_s = mysqli_query($mysqli, $sql_s);
 
         $starRank=[];
         $rank=0;
+        if($res_s)
         while($rank < 10){
             $starRank[$rank++] = mysqli_fetch_array($res_s);
         };
@@ -168,8 +171,8 @@
         <form>
             <div class="mymenu">
                 <input type="button" value="마이페이지" onclick="location.href='mypage.html'">
-                <input type="button" value="리뷰" onclick="location.href='review.html'">
-                <input type="button" value="착한가격식당" onclick="location.href='kind_price.html'">
+                <input type="button" value="리뷰" onclick="location.href='review2.php'">
+                <input type="button" value="착한가격식당" onclick="location.href='kind_price2.php'">
                 <input type="button" value="순위" onclick="location.href='ranking.php'">
             </div>
         </form>

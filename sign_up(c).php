@@ -1,5 +1,6 @@
 <?php
     include "dbconnect.php";
+    mysqli_autocommit($mysqli,FALSE);
 
     $id= $_POST['id'];
     $pass= $_POST['pass'];
@@ -21,19 +22,19 @@
     }
     $sql= "INSERT INTO member(id, pass, name, birth, gender) VALUES('$id','$pass','$name','$birth','$gender')";
     $res=mysqli_query($mysqli,$sql);
-    if(!$res===TRUE){
+    
+    if(!mysqli_commit($mysqli)){
         echo "
             <script>
-                alert('회원가입 에러 발생!');
-                history.back(); 
+                alert('회원가입에 실패하였습니다.'); 
             </script>
             ";
             exit();
     }
+    mysqli_rollback($mysqli);   
+  
     mysqli_close($mysqli);
-
- 
-    // 데이터 저장이 완료된 후 index.php로 페이지 이동
+   
     echo "
         <script>
             alert('회원가입이 완료되었습니다.');
