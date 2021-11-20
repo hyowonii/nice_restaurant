@@ -46,3 +46,54 @@ form{
     width: 100px;
     margin: 10px;
 }
+
+/*php*/
+#search-word{
+    text-align: center;
+}
+
+#search-form{
+    margin: 20px;
+}
+
+.restaurant{
+    margin: 20px;
+    border-style: double;
+    border-radius: 5px;
+}
+
+#restaurant-content{
+    padding: 10px;
+}
+
+#restaurant-content b{
+    font-size: 17px;
+}
+
+#edit{
+    font-size: 15px;
+    float: right;
+    margin-right: 3%;
+}
+
+#x{
+    border:none;
+    padding:0;
+    background-color: lightgray;
+    cursor: pointer;
+    position: inherit;
+    float: right;
+}
+
+.editLayer{
+    display: none;
+    padding: 20px 20px;
+    background-color: lightgray;
+    border: 1.5px solid;
+    border-radius: 4px;
+    position: absolute;
+    top:30%;
+    left:40%;
+}
+
+

@@ -4,9 +4,10 @@
 }
 
 h1 a[href]{
-    color: orange;
+    color:orange;
     text-decoration-line: none;
 }
+
 
 .main_content form{
     float: none;
@@ -45,4 +46,28 @@ form{
 .mymenu input{
     width: 100px;
     margin: 10px;
+}
+
+/*php*/
+#search-word{
+    text-align: center;
+}
+
+.review{
+    margin: 20px;
+    border-style: double;
+    border-radius: 5px;
+}
+
+#reviewContent{
+    padding: 10px;
+    
+}
+
+#reviewContent b{
+    font-size: 17px;
+}
+
+#reviewContent i{
+    float: right;
 }

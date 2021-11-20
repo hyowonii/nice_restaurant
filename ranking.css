@@ -79,6 +79,7 @@
 #line{
     display: block;
     width:1px;
+    height:180%;
     background-color: gray;
     position:absolute;
     top:0;

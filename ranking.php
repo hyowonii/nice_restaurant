@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
-        <link rel="stylesheet" href="ranking.css">
+        <link rel="stylesheet" href="ranking.css?after">
         <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
     </head>
     <body>
@@ -22,6 +22,15 @@
             $reviewRank[$rank++] = mysqli_fetch_array($res_r);
         };
 
+        // 업소명과 리뷰개수 출력
+        function printReviewRank($rank){
+            if(isset($rank)){
+                echo $rank['restName']." (".$rank['cnt']."개)";
+            } else {
+                echo "X";
+            }
+        };
+
         // 별점 평균 점수 상위 10개
         $sql_s = "SELECT restName,AVG(star) as avg FROM review GROUP BY restName ORDER BY avg DESC limit 10";
         $res_s = mysqli_query($mysqli, $sql_s);
@@ -32,10 +41,20 @@
             $starRank[$rank++] = mysqli_fetch_array($res_s);
         };
 
+        // 업소명과 별점평균 출력
+        function printStarRank($rank){
+            if(isset($rank)){
+                echo $rank['restName']." (".$rank['avg']."점)";
+            } else {
+                echo "X";
+            }
+        };
+        
+
         ?>
 
         <div class="main_content">
-            <h1><a href="index.html"><i class="fas fa-utensils"></i> 웹페이지 이름</a></h1>
+            <h1><a href="main.php"><i class="fas fa-utensils"></i> 웹페이지 이름</a></h1>
             <h2>모범음식점 Ranking</h2>
             <div class="rank">
                 <div id="res_cnt">
@@ -55,43 +74,43 @@
                     <ul>
                         <li>
                             1위
-                            <p id='1st'><?php echo $reviewRank[0]['restName']; ?></p>
+                            <p id='1st'><?php printReviewRank($reviewRank[0]); ?></p>
                         </li>
                         <li>
                             2위
-                            <p id='2nd'><?php echo $reviewRank[1]['restName']; ?></p>
+                            <p id='2nd'><?php printReviewRank($reviewRank[1]); ?></p>
                         </li>
                         <li>
                             3위
-                            <p id='3rd'><?php echo $reviewRank[2]['restName']; ?></p>
+                            <p id='3rd'><?php printReviewRank($reviewRank[2]); ?></p>
                         </li>
                         <li>
                             4위
-                            <p id='4th'><?php echo $reviewRank[3]['restName']; ?></p>
+                            <p id='4th'><?php printReviewRank($reviewRank[3]); ?></p>
                         </li>
                         <li>
                             5위
-                            <p id='5th'><?php echo $reviewRank[4]['restName']; ?></p>
+                            <p id='5th'><?php printReviewRank($reviewRank[4]) ?></p>
                         </li>
                         <li>
                             6위
-                            <p id='6th'><?php echo $reviewRank[5]['restName']; ?></p>
+                            <p id='6th'><?php printReviewRank($reviewRank[5]); ?></p>
                         </li>
                         <li>
                             7위
-                            <p id='7th'><?php echo $reviewRank[6]['restName']; ?></p>
+                            <p id='7th'><?php printReviewRank($reviewRank[6]); ?></p>
                         </li>
                         <li>
                             8위
-                            <p id='8th'><?php echo $reviewRank[7]['restName']; ?></p>
+                            <p id='8th'><?php printReviewRank($reviewRank[7]); ?></p>
                         </li>
                         <li>
                             9위
-                            <p id='9th'><?php echo $reviewRank[8]['restName']; ?></p>
+                            <p id='9th'><?php printReviewRank($reviewRank[8]); ?></p>
                         </li>
                         <li>
                             10위
-                            <p id='10th'><?php echo $reviewRank[9]['restName']; ?></p>
+                            <p id='10th'><?php printReviewRank($reviewRank[9]); ?></p>
                         </li>
                         
                     </ul>
@@ -101,43 +120,43 @@
                     <ul>
                         <li>
                             1위
-                            <p id='1st'><?php echo $starRank[0]['restName']; ?></p>
+                            <p id='1st'><?php printStarRank($starRank[0]); ?></p>
                         </li>
                         <li>
                             2위
-                            <p id='2nd'><?php echo $starRank[1]['restName']; ?></p>
+                            <p id='2nd'><?php printStarRank($starRank[1]);; ?></p>
                         </li>
                         <li>
                             3위
-                            <p id='3rd'><?php echo $starRank[2]['restName']; ?></p>
+                            <p id='3rd'><?php printStarRank($starRank[2]);; ?></p>
                         </li>
                         <li>
                             4위
-                            <p id='4th'><?php echo $starRank[3]['restName']; ?></p>
+                            <p id='4th'><?php printStarRank($starRank[3]);; ?></p>
                         </li>
                         <li>
                             5위
-                            <p id='5th'><?php echo $starRank[4]['restName']; ?></p>
+                            <p id='5th'><?php printStarRank($starRank[4]);; ?></p>
                         </li>
                         <li>
                             6위
-                            <p id='6th'><?php echo $starRank[5]['restName']; ?></p>
+                            <p id='6th'><?php printStarRank($starRank[5]);; ?></p>
                         </li>
                         <li>
                             7위
-                            <p id='7th'><?php echo $starRank[6]['restName']; ?></p>
+                            <p id='7th'><?php printStarRank($starRank[6]);; ?></p>
                         </li>
                         <li>
                             8위
-                            <p id='8th'><?php echo $starRank[7]['restName']; ?></p>
+                            <p id='8th'><?php printStarRank($starRank[7]);; ?></p>
                         </li>
                         <li>
                             9위
-                            <p id='9th'><?php echo $starRank[8]['restName']; ?></p>
+                            <p id='9th'><?php printStarRank($starRank[8]);; ?></p>
                         </li>
                         <li>
                             10위
-                            <p id='10th'><?php echo $starRank[9]['restName']; ?></p>
+                            <p id='10th'><?php printStarRank($starRank[9]);; ?></p>
                         </li>
                     </ul>
                 </div>
