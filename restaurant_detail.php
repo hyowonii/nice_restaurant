@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel='stylesheet' href="star.css"/>
+    <link rel="stylesheet" href="review.css?after5">  
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,6 +16,14 @@
     color: orange;
     text-decoration-line: none;
 }
+    h2{
+      color:red;
+    }    
+
+    h4{
+      color:black;
+      font-family: 'Jeju Gothic', sans-serif;
+    }
 #line{
     display: block;
     width:1px;
@@ -38,8 +46,10 @@
 }
 
     </style>
+    
     <?php include "header.php";
         include "dbconnect.php";
+        //선택한 음식점명 가져와서 테이블에서 셀렉함
         $restName=$_POST['restName'];
         $sql="SELECT * FROM restaurant WHERE restName='$restName'";
         $res=mysqli_query($mysqli,$sql);
@@ -57,26 +67,21 @@
         $res=mysqli_query($mysqli,$sql);
         $newArray=mysqli_fetch_array($res,MYSQLI_ASSOC);
         $number_of_rows= mysqli_num_rows($res);
+        //만약 리뷰가 존재하지 않을 시
         if(!$number_of_rows){
-          $reviewDetail="리뷰를 등록해주세요.";
           $starPoint="";
-          $date="";
-          $star="";
+          $star="리뷰가 존재하지 않습니다.";
         }else{
           $reviewDetail=$newArray['reviewDetail'];
           $starPoint=$newArray['starPoint'];
           $date=$newArray['date'];
-          $starSum=0;
-          $sql=$sql="SELECT * FROM review WHERE restName='$restName'";
+          //별점 평균 구하기
+          $sql="SELECT AVG(starPoint) as avg FROM review WHERE restName='$restName'";
           $res=mysqli_query($mysqli,$sql);
-          if($res){
-            while($newArray=mysqli_fetch_array($res,MYSQLI_ASSOC)){
-              $starSum+=$newArray['starPoint'];
-            }
-          }
-          $star=number_format(($starSum/$number_of_rows), 1);
+          $starArr=mysqli_fetch_array($res);
+          $star=number_format($starArr['avg'],1);
+          
         }
-       
     ?>
       <script>
         function resetDetail(){
@@ -89,17 +94,18 @@
 <h1><a href="main.php"><i class="fas fa-utensils"></i> 모음</a></h1>
     <div id="main"><h1>Restaurant: <?=$restName?> </h1>
     <h2>★: <?=$star?></h2>
-    <h4>main menu: <?=$main?></h4> 
-    <h4>tel: <?=$phone?></h4>
-    <h4>address: <?=$road?> (도로명주소: <?=$addr?>)</h4>
-    <h4>business: <?=$type?></h4>
-    <h4>since: <?=$since?></h4>
+    <h4>메인메뉴:  <?=$main?></h4>
+    <h4>전화번호: <?=$phone?></h4>
+    <h4>주소: <?=$road?> (도로명주소: <?=$addr?>)</h4>
+    <h4>업태: <?=$type?></h4>
+    <h4>Since: <?=$since?></h4>
     </div>
     
-    <div class="review">
-      <div id="review">
+    <div class="reviewM">
+      <div id="reviewM">
         <h1>REVIEW</h1>
       </div>
+      <!--비로그인시 리뷰 입력 불가-->
       <?php if(!$id){  ?>
       <div>
         <label for="forReview">Write your review:</label><br>
@@ -129,6 +135,7 @@
             <textarea name="review" rows="7" cols="100">욕설 및 비방 등 악의적인 의도를 가지고 작성된 리뷰는 삭제됩니다.</textarea>
             </div>
             <?php
+            //레스토랑 정보를 전송하기 위한 히든인풋
              echo "<input type = 'hidden' name = 'restName' value = '".$restName."'>";
              echo "<input type = 'hidden' name = 'dongName' value = '".$dong."'>";
              echo "<input type = 'hidden' name = 'guCode' value = '".$guCode."'>";
@@ -140,18 +147,23 @@
             </div>
         </form>
     </div>
-    <?php }?>
+    <?php }?> 
       <?php
-        $sql=$sql="SELECT * FROM review WHERE restName='$restName'";
+        //레스토랑 리뷰 출력
+        $sql="SELECT * FROM review WHERE restName='$restName'";
         $res=mysqli_query($mysqli,$sql);
         if($res){
           while($newArray=mysqli_fetch_array($res,MYSQLI_ASSOC)){
-              echo "</br>".$newArray['id']."님의 리뷰</br> ";
-              echo "상세리뷰: ".$newArray['reviewDetail']."&nbsp별점: ";
-              echo $newArray['starPoint']."&nbsp작성시간: ";
-              echo $newArray['date']."</br>";
-          }
-        }
+              echo "
+                <div class='review2'>
+                <div id='reviewContent'>
+                <b>".$newArray['restName']."</b> [ ID: ".$newArray['id']." ] <i>작성일자: ".$newArray['date']."</i>
+                <br/>"."★:".$newArray['starPoint']."</br/>".$newArray['reviewDetail']."<br/>
+                </div>
+                </div>
+              ";
+            }
+        }else echo "<br>리뷰를 작성하세요.";
         mysqli_free_result($res);
         mysqli_close($mysqli);   
       ?>

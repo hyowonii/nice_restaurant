@@ -2,17 +2,18 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>SIGN_UP</title>
+    <title>회원탈퇴</title>
     <?php include "header.php";?>
     <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
-    <style>h1 a[href]{
+    <style>
+    #main{width: 500px; height: 400px; margin: 0 auto; float: center;}
+    #main h1{ float: center margin: 50px 0 0 0; padding-bottom: 5px; border-bottom: solid 2px #ffbe10; font-size: 30px; text-align: center; font-weight: bold;}
+    h1 a[href]{
         color: orange;
         text-decoration-line: none;
     }</style>
     <script>
-        // 서밋 버튼 이미지 클릭시
         function delmem(){
- 
             if(!document.form.pass.value){
                 alert("비밀번호를 입력하세요.");
                 document.form.pass.focus();
@@ -24,16 +25,13 @@
                 document.form.pass_confirm.focus();
                 return;
             }
-            // 비밀번호와 비밀번호 확인 칸의 입력값이 같은지 비교
             if(document.form.pass.value != document.form.pass_confirm.value){
                 alert("비밀번호가 일치하지 않습니다.\n다시 입력해 주세요.");
                 document.member_form.pass.focus();
-                // 커서가 이동하고 그곳에 써있는 글씨가 선택되어 있음.
                 document.member_form.pass.select();
                 return;
             }
-            // form요소를 직접 submit하는 메소드
-            document.form.submit(); //겟 엘리먼트 안하고 폼, 인풋을 name속성이 document 배열로 찾을 수 있음.
+            document.form.submit(); 
         }
     </script>
  
@@ -59,12 +57,10 @@
     ?>
 
     <section>
-        <div id="main_content">
-            <div id="join_box">
-                <!-- DB의 member테이블에 저장하는 member_insert.php에 입력값들 전달하도록 -->
+        <div id="main">
+            <div id="탈퇴">
                 <form action="deleteMem(c).php?id=<?=$id?>" method="post" name="form">
-                    <h2>회원정보 탈퇴</h2>
-                    <!-- 각 줄마다 라벨, 인풋요소 영역으로 나누어 지므로 col1, col2 클래스지정으로 스타일링 -->
+                    <h1>회원정보 탈퇴</h1>
                     <div class="form">
                         <div class="col1">이름</div>
                         <div class="col2"><?=$name?></div>

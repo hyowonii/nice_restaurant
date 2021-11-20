@@ -41,7 +41,7 @@
     </style>
     <?php include "header.php"?>
     <script>
-    
+    //상위 카테고리 선택시 하위 카테고리 변경
     function categoryChange(obj) {
         var sub_region = ["지역","강남구", "용산구", "마포구", "송파구","종로구"];
         var sub_business = ["업태","한식", "중국식", "경양식","일식","기타"];
@@ -62,12 +62,7 @@
             target.appendChild(opt);
         } 
     }
-    function submitForm(obj){
-        var oForm = document.getElementById("subForm");
-        if(!obj.value=="등록일"||!obj.value=="별점"||!obj.value=="지역"||!obj.value=="업태"){
-            oForm.submit();
-        }
-    }
+
     </script>
 </head>
 <body>

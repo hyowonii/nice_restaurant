@@ -1,9 +1,9 @@
 <?php
 
     include "dbconnect.php";
-
+    //트랜잭션
     mysqli_autocommit($mysqli,FALSE);
-
+    //prepared_statement
     $stmt=mysqli_prepare($mysqli,"INSERT INTO review(id, restName, reviewDetail, starPoint, date, guName, dongName, restType) VALUES(?,?,?,?,?,?,?,?)");
    
     mysqli_stmt_bind_param($stmt,'sssdssss',$id,$restName, $reviewDetail, $starPoint, $date, $guName,$dongName,$restType);   

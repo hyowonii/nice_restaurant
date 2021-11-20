@@ -4,22 +4,19 @@
     <meta charset="UTF-8">
     <title>SIGN_UP</title>
     <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
-    <style>h1 a[href]{
+    <style>
+    #main{width: 500px; height: 400px; margin: 0 auto; float: center;}
+    #main h1{ float: center margin: 50px 0 0 0; padding-bottom: 5px; border-bottom: solid 2px #ffbe10; font-size: 30px; text-align: center; font-weight: bold;}
+    h1 a[href]{
         color: orange;
         text-decoration-line: none;
     }</style>
     <script>
-        // 서밋 버튼 이미지 클릭시
         function signUp(){
- 
-            // 입력값 중에 비어있으면 안되는 것들이 있음.
- 
-            // id칸이 비어 있는가?
+            
             if(!document.form.id.value){
                 alert("아이디를 입력하세요.");
-                //커서(포커스)를 아이디 인풋요소로 이동
                 document.form.id.focus();
-                //아래의 submit()을 하면 안되므로...
                 return;
             }
          
@@ -40,25 +37,22 @@
                 document.form.name.focus();
                 return;
             }
-            // 비밀번호와 비밀번호 확인 칸의 입력값이 같은지 비교
             if(document.form.pass.value != document.form.pass_confirm.value){
                 alert("비밀번호가 일치하지 않습니다.\n다시 입력해 주세요.");
                 document.member_form.pass.focus();
-                // 커서가 이동하고 그곳에 써있는 글씨가 선택되어 있음.
                 document.member_form.pass.select();
                 return;
             }
-            // form요소를 직접 submit하는 메소드
-            document.form.submit(); //겟 엘리먼트 안하고 폼, 인풋을 name속성이 document 배열로 찾을 수 있음.
+
+            document.form.submit();  
         }
-        //아이디 중복 확인 버튼 클릭
+        //아이디 중복 검사
         function checkId(){
-            // 사용자가 입력한 id값 얻어오기
             var userid=document.getElementById("id").value;
             if(userid)
 	        {
 		        url = "checkId.php?userid="+userid;
-			    window.open(url,"chkid","width=300,height=100");
+			    window.open(url,"checkid","width=400,height=50,resizable=no,left=500,top=100");
 		    }else{
 			    alert("아이디를 입력하세요");
 		    }
@@ -69,16 +63,13 @@
 <body>
     <h1 id="b"><a href="main.php"><i class="fas fa-utensils"></i> 모음</a></h1>
     <section>
-        <div id="main_content">
+        <div id="main">
             <div id="join_box">
-                <!-- DB의 member테이블에 저장하는 member_insert.php에 입력값들 전달하도록 -->
                 <form action="sign_up(c).php" method="post" name="form">
-                    <h2>회원 가입</h2>
-                    <!-- 각 줄마다 라벨, 인풋요소 영역으로 나누어 지므로 col1, col2 클래스지정으로 스타일링 -->
+                    <h1>SIGN-UP</h1>
                     <div class="form id">
                         <div class="col1">아이디</div>
                         <div class="col2"><input type="text" id="id" name="id"></div>
-                        <!-- id줄만 존재하는 칸 -->
                         <div class="col3">
                             <input type="button" onclick="checkId()" value="중복확인">
                         </div>
@@ -107,7 +98,7 @@
                         <input type='radio' name='gender' value='F' />여성
                         <input type='radio' name='gender' value='M' />남성
                     </div> 
-                    <div class="join">
+                    <div id="joinButton">
                         <input type="button" value="JOIN" onclick="signUp()">
                     </div>
                 </form>

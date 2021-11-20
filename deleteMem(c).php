@@ -2,8 +2,7 @@
     include "dbconnect.php";
     $id= $_GET['id'];
     $pass= $_POST['pass'];
-    
-    
+
     $sql= "DELETE FROM member where id='$id'";  
     mysqli_query($mysqli, $sql);
     mysqli_close($mysqli);
@@ -16,5 +15,4 @@
         history.go(-2);
     </script>
     ";
-
 ?>
