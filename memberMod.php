@@ -3,22 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>SIGN_UP</title>
- 
+    <?php include "header.php";?>
     <script>
         // 서밋 버튼 이미지 클릭시
-        function signUp(){
+        function modify(){
  
-            // 입력값 중에 비어있으면 안되는 것들이 있음.
- 
-            // id칸이 비어 있는가?
-            if(!document.form.id.value){
-                alert("아이디를 입력하세요.");
-                //커서(포커스)를 아이디 인풋요소로 이동
-                document.form.id.focus();
-                //아래의 submit()을 하면 안되므로...
-                return;
-            }
-         
             if(!document.form.pass.value){
                 alert("비밀번호를 입력하세요.");
                 document.form.pass.focus();
@@ -47,55 +36,58 @@
             // form요소를 직접 submit하는 메소드
             document.form.submit(); //겟 엘리먼트 안하고 폼, 인풋을 name속성이 document 배열로 찾을 수 있음.
         }
-        //아이디 중복 확인 버튼 클릭
-        function checkId(){
-            // 사용자가 입력한 id값 얻어오기
-            var userid=document.getElementById("id").value;
-            if(userid)
-	        {
-		        url = "checkId.php?userid="+userid;
-			    window.open(url,"chkid","width=300,height=100");
-		    }else{
-			    alert("아이디를 입력하세요");
-		    }
-	    }
     </script>
  
 </head>
 <body>
+    <?php if(!$id){  ?>
+        <script> 
+            alert("로그인하세요.");
+            location.href='login.html';
+        </script>
+    <?php } ?>
+    <?php
+        include "dbconnect.php";
+        $sql="SELECT * FROM member WHERE id='$id'";
+        $res=mysqli_query($mysqli,$sql);
+        $newArray=mysqli_fetch_array($res,MYSQLI_ASSOC);
+        $pass=$newArray['pass'];
+        $birth=$newArray['birth'];
+        $gender=$newArray['gender'];
+
+        mysqli_free_result($res);
+        mysqli_close($mysqli);
+    ?>
+
     <section>
         <div id="main_content">
             <div id="join_box">
                 <!-- DB의 member테이블에 저장하는 member_insert.php에 입력값들 전달하도록 -->
-                <form action="sign_up(c).php" method="post" name="form">
-                    <h2>회원 가입</h2>
+                <form action="memberMod(c).php?id=<?=$id?>" method="post" name="form">
+                    <h2>회원정보 수정</h2>
                     <!-- 각 줄마다 라벨, 인풋요소 영역으로 나누어 지므로 col1, col2 클래스지정으로 스타일링 -->
                     <div class="form id">
                         <div class="col1">아이디</div>
-                        <div class="col2"><input type="text" id="id" name="id"></div>
-                        <!-- id줄만 존재하는 칸 -->
-                        <div class="col3">
-                            <input type="button" onclick="checkId()" value="중복확인">
-                        </div>
+                        <div class="col2"><?=$id?></div>                       
                     </div>
                     <div class="form">
                         <div class="col1">비밀번호</div>
-                        <div class="col2"><input type="password" name="pass"></div>
+                        <div class="col2"><input type="password" name="pass" value="<?=$pass?>"></div>
                     </div>
                     <div class="clear"></div>
                     <div class="form">
                         <div class="col1">비밀번호 확인</div>
-                        <div class="col2"><input type="password" name="pass_confirm"></div>
+                        <div class="col2"><input type="password" name="pass_confirm" value="<?=$pass?>"></div>
                     </div>
                     <div class="clear"></div>
                     <div class="form">
                         <div class="col1">이름</div>
-                        <div class="col2"><input type="text" name="name"></div>
+                        <div class="col2"><input type="text" name="name" value="<?=$name?>"></div>
                     </div>
                     <div class="clear"></div>
                     <div class="form">
                         <div class="col1">생년월일</div>
-                        <div class="col2"><input type="date" name="date"></div>
+                        <div class="col2"><input type="date" name="date" value="<?=$birth?>"></div>
                     <div class="clear"></div>
                     <div class="form">
                         <div class="col1">성별</div>
@@ -103,7 +95,7 @@
                         <input type='radio' name='gender' value='M' />남성
                     </div> 
                     <div class="join">
-                        <input type="button" value="JOIN" onclick="signUp()">
+                        <input type="button" value="수정" onclick="modify()">
                     </div>
                 </form>
             </div>

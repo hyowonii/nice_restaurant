@@ -25,13 +25,15 @@
     <section>
         <div id="main">
             <h1>SIGN IN</h1>
-            <form action="login.php" method="post" onsubmit="return checkValue();">
+            <form action="login(c).php" method="post" onsubmit="return checkValue();">
                 <div id="login_idpw">
-                    <h3>ID</h3><input type="text" id="id" placeholder="ID">
-                    <h3>PASSWORD</h3><input type="password" id="pass" placeholder="Password">
+                    <h3>ID</h3>
+                    <input type="text" name="id" id="id" placeholder="ID" maxlength="20">
+                    <h3>PASSWORD</h3>
+                    <input type="password" name="pass" id="pass" placeholder="Password" maxlength="20">
                 </div>
                 <div id="signup">
-                    <a href="#" onclick="window.open('sign_up.html','name','resizable=no width=400 height=700');return false">SIGN UP</a>
+                    <a href='sign_up.html'>SIGN UP</a>
                 </div>
                 <div id="loginbtn">
                     <input type="submit" value="LOGIN"> 

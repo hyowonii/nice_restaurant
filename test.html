@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+  <input type="hidden" name="restName" id="restName" value = "">
+              <input type="hidden" name="date" id="date" value= "">
+              <input type="hidden" name="guName" id="guName" value="">
+              <input type="hidden" name="dongName" id="dongName" value="">
+              <input type="hidden" name="restType" id="restType" value="">	
+    document.getElementsById('guName').value=guName;
+    <script>
+        function submitForm(){
+          var reviewForm=document.reviewForm;
+          var guName;
+          var restType;
+          if(<?=$guCode?>=="3220000"){
+           guName="강남구";
+          }if(<?=$guCode?>=="3130000"){
+           guName="마포구";
+          }if(<?=$guCode?>=="3020000"){
+           guName="용산구";
+          }if(<?=$guCode?>=="3000000"){
+           guName="종로구";
+          }else{
+            guName="송파구";
+          }
+  
+          if(<?=$type?>=="한식"){
+            restType="한식";
+          }if(<?=$type?>=="중국식"){
+            restType="중국식";
+          }if(<?=$type?>=="일식"){
+            restType="일식";
+          }if(<?=$type?>=="경양식"){
+            restType="경양식";
+          }else{
+            restType="기타";
+          }
+          
+          $('input[name=restName]').attr('value',<?=$restName?>);
+          $('input[name=guName]').attr('value',guName);
+          $('input[name=dongName').attr('value',date());
+          $('input[name=restName]').attr('value',<?=$dong?>);
+          $('input[name=restType]').attr('value',restType);
+          
+          document.reviewForm.submit();
+        }     
+      </script>   
+      <script>
+            function addInput(val,val2) {
+                var input = document.createElement('input');
+                input.setAttribute('type', 'hidden');
+                input.setAttribute('name', val2);
+                input.setAttribute('value', val);
+                document.body.appendChild(input);
+            }
+            </script
+</body>
+</html>
