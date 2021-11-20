@@ -38,7 +38,7 @@
 
         <form>
             <div class="mymenu">
-                <input type="button" value="마이페이지" onclick="location.href='mypage.html'">
+                <input type="button" value="마이페이지" onclick="location.href='mypage.php'">
                 <input type="button" value="리뷰" onclick="location.href='review2.php'">
                 <input type="button" value="착한가격식당" onclick="location.href='kind_price2.php'">
                 <input type="button" value="순위" onclick="location.href='ranking.php'">
