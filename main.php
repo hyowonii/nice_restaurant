@@ -89,7 +89,7 @@
             <input type="submit" id="all" name = "mapo_all" value = "전체">
             </form>
                 <?php
-                    $sql_dong = "SELECT * FROM donginfo AS d, guinfo AS g WHERE g.guName='마포구' AND d.guCode=g.guCode;";
+                    $sql_dong = "SELECT * FROM donginfo AS d INNER JOIN guinfo AS g ON g.guName='마포구' AND d.guCode=g.guCode;";
                     $res_dong = mysqli_query($mysqli, $sql_dong);
                     if ($res_dong){
                         while ($newArray = mysqli_fetch_array($res_dong, MYSQLI_ASSOC)){
@@ -108,7 +108,7 @@
             <input type="submit" id="all" name = "yongsan_all" value = "전체">
             </form>
                 <?php
-                    $sql_dong = "SELECT * FROM donginfo AS d, guinfo AS g WHERE g.guName='용산구' AND d.guCode=g.guCode;";
+                    $sql_dong = "SELECT * FROM donginfo AS d INNER JOIN guinfo AS g ON g.guName='용산구' AND d.guCode=g.guCode;";
                     $res_dong = mysqli_query($mysqli, $sql_dong);
                     if ($res_dong){
                         while ($newArray = mysqli_fetch_array($res_dong, MYSQLI_ASSOC)){
@@ -128,7 +128,7 @@
             </form>
             <form action="searchlist.php" method="post">
                 <?php
-                    $sql_dong = "SELECT * FROM donginfo AS d, guinfo AS g WHERE g.guName='송파구' AND d.guCode=g.guCode;";
+                    $sql_dong = "SELECT * FROM donginfo AS d INNER JOIN guinfo AS g ON g.guName='송파구' AND d.guCode=g.guCode;";
                     $res_dong = mysqli_query($mysqli, $sql_dong);
                     if ($res_dong){
                         while ($newArray = mysqli_fetch_array($res_dong, MYSQLI_ASSOC)){
@@ -147,7 +147,7 @@
             <input type="submit" id="all" name = "jongro_all" value = "전체">
             </form>
                 <?php
-                    $sql_dong = "SELECT * FROM donginfo AS d, guinfo AS g WHERE g.guName='송파구' AND d.guCode=g.guCode;";
+                    $sql_dong = "SELECT * FROM donginfo AS d INNER JOIN guinfo AS g ON g.guName='종로구' AND d.guCode=g.guCode;";
                     $res_dong = mysqli_query($mysqli, $sql_dong);
                     if ($res_dong){
                         while ($newArray = mysqli_fetch_array($res_dong, MYSQLI_ASSOC)){
