@@ -70,7 +70,7 @@
                     <input type="submit" id="all" name = "gangnam_all" value = "전체">
                 </form>
                 <?php
-                    $sql_dong = "SELECT * FROM donginfo AS d, guinfo AS g WHERE g.guName='강남구' AND d.guCode=g.guCode;";
+                    $sql_dong = "SELECT * FROM donginfo AS d INNER JOIN guinfo AS g ON g.guName='강남구' AND d.guCode=g.guCode;";
                     $res_dong = mysqli_query($mysqli, $sql_dong);
                     if ($res_dong){
                         while ($newArray = mysqli_fetch_array($res_dong, MYSQLI_ASSOC)){
