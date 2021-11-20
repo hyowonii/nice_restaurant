@@ -10,7 +10,7 @@
     <title>Document</title>
 </head>
 <body>
-<h1><a href="kind_price.html"><i class="fas fa-arrow-left"></i></i> 착한 가격 식당</a></h1>
+<h1><a href="kind_price2.php"><i class="fas fa-arrow-left"></i></i> 착한 가격 식당</a></h1>
 <div class='editLayer'> 
     <div class='editContent'>
         <button id='x' onClick='hideEdit()'>x</button><br/>

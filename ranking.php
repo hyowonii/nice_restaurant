@@ -17,6 +17,7 @@
         $sql_r = "SELECT restName,COUNT(restName) as cnt FROM review GROUP BY restName ORDER BY cnt DESC limit 10";
         $res_r = mysqli_query($mysqli, $sql_r);
 
+<<<<<<< HEAD
         $reviewRank=[];
         $rank = 0;
         if ($res_r)
@@ -28,15 +29,45 @@
         function printReviewRank($rank){
             if(isset($rank)){
                 echo $rank['restName']." (".$rank['cnt']."개)";
+=======
+        
+        while($reviewRank = mysqli_fetch_array($res_r)){
+            $searchKeyword = $reviewRank['restName'];
+            $cnt = $reviewRank['cnt'];
+            // reviewrank table에 랭킹 등록
+            $sql = "SELECT * FROM reviewrank WHERE searchKeyword='$searchKeyword'";
+            $res = mysqli_query($mysqli, $sql);
+            if($res->num_rows > 0){
+                continue;
+>>>>>>> f33f2c6183071a4270b0efb3aeed53dd0f610e50
             } else {
-                echo "X";
+                $sql_rank = "INSERT INTO reviewrank (searchKeyword, cnt) VALUES ('$searchKeyword', '$cnt')";
+                mysqli_query($mysqli, $sql_rank);
             }
+
         };
+
+        $sql = "SELECT * FROM reviewrank ORDER BY cnt DESC";
+        $res = mysqli_query($mysqli, $sql);
+        $i = 0;
+        while($newArray = mysqli_fetch_array($res)){
+            if($i>9){
+                $searchKeyword = $newArray['searchKeyword'];
+                $sql_d = "DELETE FROM reviewrank WHERE searchKeyword='$searchKeyword'";
+                mysqli_query($mysqli, $sql_d);
+            }
+            $i++;
+        }
+
+        
+        
+        
 
         // 별점 평균 점수 상위 10개
         $sql_s = "SELECT restName,AVG(starPoint) as avg FROM review GROUP BY restName ORDER BY avg DESC limit 10";
         $res_s = mysqli_query($mysqli, $sql_s);
 
+<<<<<<< HEAD
         $starRank=[];
         $rank=0;
         if($res_s)
@@ -48,10 +79,34 @@
         function printStarRank($rank){
             if(isset($rank)){
                 echo $rank['restName']." (".$rank['avg']."점)";
+=======
+        while($reviewRank = mysqli_fetch_array($res_s)){
+            $restName = $reviewRank['restName'];
+            $avg = $reviewRank['avg'];
+            // starrank table에 랭킹 등록
+            $sql = "SELECT * FROM starrank WHERE restName='$restName'";
+            $res = mysqli_query($mysqli, $sql);
+            if($res->num_rows > 0){
+                continue;
+>>>>>>> f33f2c6183071a4270b0efb3aeed53dd0f610e50
             } else {
-                echo "X";
+                $sql_rank = "INSERT INTO starrank (restName, avg) VALUES ('$restName', '$avg')";
+                mysqli_query($mysqli, $sql_rank);
             }
+
         };
+
+        $sql = "SELECT * FROM starrank ORDER BY avg DESC";
+        $res = mysqli_query($mysqli, $sql);
+        $i = 0;
+        while($newArray = mysqli_fetch_array($res)){
+            if($i>9){
+                $restName = $newArray['restName'];
+                $sql_d = "DELETE FROM starrank WHERE restName='$restName'";
+                mysqli_query($mysqli, $sql_d);
+            }
+            $i++;
+        }
         
 
         ?>
@@ -75,92 +130,36 @@
                 <div id='review'>
                     <h3>리뷰 개수</h3>
                     <ul>
-                        <li>
-                            1위
-                            <p id='1st'><?php printReviewRank($reviewRank[0]); ?></p>
-                        </li>
-                        <li>
-                            2위
-                            <p id='2nd'><?php printReviewRank($reviewRank[1]); ?></p>
-                        </li>
-                        <li>
-                            3위
-                            <p id='3rd'><?php printReviewRank($reviewRank[2]); ?></p>
-                        </li>
-                        <li>
-                            4위
-                            <p id='4th'><?php printReviewRank($reviewRank[3]); ?></p>
-                        </li>
-                        <li>
-                            5위
-                            <p id='5th'><?php printReviewRank($reviewRank[4]) ?></p>
-                        </li>
-                        <li>
-                            6위
-                            <p id='6th'><?php printReviewRank($reviewRank[5]); ?></p>
-                        </li>
-                        <li>
-                            7위
-                            <p id='7th'><?php printReviewRank($reviewRank[6]); ?></p>
-                        </li>
-                        <li>
-                            8위
-                            <p id='8th'><?php printReviewRank($reviewRank[7]); ?></p>
-                        </li>
-                        <li>
-                            9위
-                            <p id='9th'><?php printReviewRank($reviewRank[8]); ?></p>
-                        </li>
-                        <li>
-                            10위
-                            <p id='10th'><?php printReviewRank($reviewRank[9]); ?></p>
-                        </li>
+                        <?php
+                        $n=1;
+                        $sql = "SELECT * FROM reviewrank";
+                        $res = mysqli_query($mysqli, $sql);
+                        while($newArray = mysqli_fetch_array($res)){
+                            $searchKeyword = $newArray['searchKeyword'];
+                            $cnt = $newArray['cnt'];
+                            echo "<li>".$n++."위<br/>
+                            <p>".$searchKeyword." (".$cnt."개)</p>
+                            </li>";
+                        }
+                        ?>
                         
                     </ul>
                 </div>
                 <div id='star'>
                     <h3>별점순</h3>
                     <ul>
-                        <li>
-                            1위
-                            <p id='1st'><?php printStarRank($starRank[0]); ?></p>
-                        </li>
-                        <li>
-                            2위
-                            <p id='2nd'><?php printStarRank($starRank[1]);; ?></p>
-                        </li>
-                        <li>
-                            3위
-                            <p id='3rd'><?php printStarRank($starRank[2]);; ?></p>
-                        </li>
-                        <li>
-                            4위
-                            <p id='4th'><?php printStarRank($starRank[3]);; ?></p>
-                        </li>
-                        <li>
-                            5위
-                            <p id='5th'><?php printStarRank($starRank[4]);; ?></p>
-                        </li>
-                        <li>
-                            6위
-                            <p id='6th'><?php printStarRank($starRank[5]);; ?></p>
-                        </li>
-                        <li>
-                            7위
-                            <p id='7th'><?php printStarRank($starRank[6]);; ?></p>
-                        </li>
-                        <li>
-                            8위
-                            <p id='8th'><?php printStarRank($starRank[7]);; ?></p>
-                        </li>
-                        <li>
-                            9위
-                            <p id='9th'><?php printStarRank($starRank[8]);; ?></p>
-                        </li>
-                        <li>
-                            10위
-                            <p id='10th'><?php printStarRank($starRank[9]);; ?></p>
-                        </li>
+                    <?php
+                        $n=1;
+                        $sql = "SELECT * FROM starrank";
+                        $res = mysqli_query($mysqli, $sql);
+                        while($newArray = mysqli_fetch_array($res)){
+                            $restName = $newArray['restName'];
+                            $avg = $newArray['avg'];
+                            echo "<li>".$n++."위<br/>
+                            <p>".$restName." (".$avg."개)</p>
+                            </li>";
+                        }
+                        ?>
                     </ul>
                 </div>
             </div>
@@ -170,7 +169,7 @@
 
         <form>
             <div class="mymenu">
-                <input type="button" value="마이페이지" onclick="location.href='mypage.html'">
+                <input type="button" value="마이페이지" onclick="location.href='mypage.php'">
                 <input type="button" value="리뷰" onclick="location.href='review2.php'">
                 <input type="button" value="착한가격식당" onclick="location.href='kind_price2.php'">
                 <input type="button" value="순위" onclick="location.href='ranking.php'">
