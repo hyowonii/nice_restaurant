@@ -8,8 +8,7 @@
     <title>Restaurant Detail</title>
     <?php include "header.php";
         include "dbconnect.php";
-        //$restName=$_REQUEST['restName'];
-        $restName="독도참치";
+        $restName=$_POST['restName'];
         $sql="SELECT * FROM restaurant WHERE restName='$restName'";
         $res=mysqli_query($mysqli,$sql);
         $newArray=mysqli_fetch_array($res,MYSQLI_ASSOC);
@@ -25,20 +24,26 @@
         $sql=$sql="SELECT * FROM review WHERE restName='$restName'";
         $res=mysqli_query($mysqli,$sql);
         $newArray=mysqli_fetch_array($res,MYSQLI_ASSOC);
-        $reviewDetail=$newArray['reviewDetail'];
-        $starPoint=$newArray['starPoint'];
-        $date=$newArray['date'];
         $number_of_rows= mysqli_num_rows($res);
-     
-        $starSum=0;
-        $sql=$sql="SELECT * FROM review WHERE restName='$restName'";
-        $res=mysqli_query($mysqli,$sql);
-        if($res){
-          while($newArray=mysqli_fetch_array($res,MYSQLI_ASSOC)){
-            $starSum+=$newArray['starPoint'];
+        if(!$number_of_rows){
+          $reviewDetail="리뷰를 등록해주세요.";
+          $starPoint="";
+          $date="";
+          $star="";
+        }else{
+          $reviewDetail=$newArray['reviewDetail'];
+          $starPoint=$newArray['starPoint'];
+          $date=$newArray['date'];
+          $starSum=0;
+          $sql=$sql="SELECT * FROM review WHERE restName='$restName'";
+          $res=mysqli_query($mysqli,$sql);
+          if($res){
+            while($newArray=mysqli_fetch_array($res,MYSQLI_ASSOC)){
+              $starSum+=$newArray['starPoint'];
+            }
           }
+          $star=number_format(($starSum/$number_of_rows), 1);
         }
-        $star=number_format(($starSum/$number_of_rows), 1);  
     ?>
     <script>
         function submitForm(){
@@ -47,11 +52,11 @@
           var restType;
           if(<?=$guCode?>=="3220000"){
            guName="강남구";
-          }if(<?=$guCode?>=="3130000"){
+          } else if(<?=$guCode?>=="3130000"){
            guName="마포구";
-          }if(<?=$guCode?>=="3020000"){
+          }else if(<?=$guCode?>=="3020000"){
            guName="용산구";
-          }if(<?=$guCode?>=="3000000"){
+          }else if(<?=$guCode?>=="3000000"){
            guName="종로구";
           }else{
             guName="송파구";
@@ -59,11 +64,11 @@
   
           if(<?=$type?>=="한식"){
             restType="한식";
-          }if(<?=$type?>=="중국식"){
+          }else if(<?=$type?>=="중국식"){
             restType="중국식";
-          }if(<?=$type?>=="일식"){
+          }else if(<?=$type?>=="일식"){
             restType="일식";
-          }if(<?=$type?>=="경양식"){
+          }else if(<?=$type?>=="경양식"){
             restType="경양식";
           }else{
             restType="기타";

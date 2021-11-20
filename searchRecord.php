@@ -18,6 +18,7 @@
             text-decoration: underline;
         }
     </style>
+    <?php include "header.php";?>
 </head>
 <body>
 <?php
@@ -32,8 +33,15 @@
         exit();
     } else {
         $mysqli = mysqli_connect("localhost", "team08", "team08", "team08");
-        $sql = "INSERT INTO searchKey (searchKeyword) VALUES ('$keyword'); ";
-        mysqli_query($mysqli, $sql);
+        $sql_f = "SELECT * FROM searchkey WHERE searchKeyword='$keyword'";
+            $res_f = mysqli_query($mysqli, $sql_f); 
+            if($res_f->num_rows > 0){
+                $sql_u = "UPDATE searchkey SET count=count+1 WHERE searchKeyword='$keyword'";
+                $res_u = mysqli_query($mysqli, $sql_u); 
+            } else {
+                $sql_i = "INSERT INTO searchkey (searchKeyword) VALUES ('$keyword')";
+                $res_i = mysqli_query($mysqli, $sql_i); 
+            }
     }
 ?>
 <header>
@@ -56,7 +64,7 @@
                 $restAddr = $newArray['restAddr'];
                 echo $n++.".";
                 echo "<form action = 'restaurant_detail.php' method ='post'>";
-                echo "<input type = 'hidden' name = 'Rname' value = '".$restName."'>";
+                echo "<input type = 'hidden' name = 'restName' value = '".$restName."'>";
                 echo "<p><input type = 'submit' class='info_name' value = '".$restName."'>";
                 echo "<span class = 'info_category'>".$restType."</span></p>";
                 echo "<p class='info_address'>".$restAddr."</p>";
@@ -69,8 +77,8 @@
 <aside>
     <form id="menu">
         <div class="mymenu">
-            <input type="button" value="마이페이지" onclick="location.href='mypage.html'">
-            <input type="button" value="리뷰" onclick="location.href='reviewAll.html'">
+            <input type="button" value="마이페이지" onclick="location.href='mypage.php'">
+            <input type="button" value="리뷰" onclick="location.href='review.html'">
             <input type="button" value="착한가격식당" onclick="location.href='kind_price.html'">
             <input type="button" value="순위" onclick="location.href='ranking.html'">
         </div>

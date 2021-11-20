@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="main.js" defer></script>
+    <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
     <style>
         form{
             display: inline-block;
@@ -16,7 +17,7 @@
 </head>
 <body>
     <header>
-        <h1><a href="/main.php">웹사이트 이름</a></h1>
+        <h1><a href="/main.php"><i class="fas fa-utensils"></i> 웹사이트 이름</a></h1>
     <nav>
     <form class = "searchbar" action="searchRecord.php" method="post">
         <div>
@@ -29,7 +30,7 @@
             <dt><b>인기검색어:</b></dt>
             <?php
             $mysqli = mysqli_connect("localhost", "team08", "team08", "team08");
-            $sql = "SELECT searchKeyword, COUNT(*) AS cnt FROM searchkey GROUP BY searchKeyword ORDER BY cnt DESC LIMIT 5;";
+            $sql = "SELECT searchKeyword, count FROM searchkey ORDER BY count DESC LIMIT 5;";
             $res = mysqli_query($mysqli, $sql);
             if ($res)
              while($newArray = mysqli_fetch_array($res, MYSQLI_ASSOC)){
@@ -156,7 +157,7 @@
     <aside>
     <form id="menu">
         <div class="mymenu">
-            <input type="button" value="마이페이지" onclick="location.href='mypage.html'">
+            <input type="button" value="마이페이지" onclick="location.href='mypage.php'">
             <input type="button" value="리뷰" onclick="location.href='review.html'">
             <input type="button" value="착한가격식당" onclick="location.href='kind_price.html'">
             <input type="button" value="순위" onclick="location.href='ranking.html'">

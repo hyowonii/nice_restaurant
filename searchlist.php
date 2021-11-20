@@ -18,6 +18,7 @@
             text-decoration: underline;
         }
     </style>
+    <?php include "header.php";?>
 </head>
 <body>
 <header>
@@ -57,7 +58,7 @@
                 $restAddr = $newArray['restAddr'];
                 echo $n++.".";
                 echo "<form action = 'restaurant_detail.php' method ='post'>";
-                echo "<input type = 'hidden' name = 'Rname' value = '".$restName."'>";
+                echo "<input type = 'hidden' name = 'restName' value = '".$restName."'>";
                 echo "<p><input type = 'submit' class='info_name' value = '".$restName."'>";
                 echo "<span class = 'info_category'>".$restType."</span></p></form>";
                 echo "<p class='info_address'>".$restAddr."</p>";
@@ -70,8 +71,8 @@
 <aside>
     <form id="menu">
         <div class="mymenu">
-            <input type="button" value="마이페이지" onclick="location.href='mypage.html'">
-            <input type="button" value="리뷰" onclick="location.href='reviewAll.html'">
+            <input type="button" value="마이페이지" onclick="location.href='mypage.php'">
+            <input type="button" value="리뷰" onclick="location.href='review.html'">
             <input type="button" value="착한가격식당" onclick="location.href='kind_price.html'">
             <input type="button" value="순위" onclick="location.href='ranking.html'">
         </div>
