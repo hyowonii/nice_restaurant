@@ -104,7 +104,7 @@
                     <ul>
                         <?php
                         $n=1;
-                        $sql = "SELECT * FROM reviewrank";
+                        $sql = "SELECT * FROM reviewrank ORDER BY cnt DESC";
                         $res = mysqli_query($mysqli, $sql);
                         while($newArray = mysqli_fetch_array($res)){
                             $searchKeyword = $newArray['searchKeyword'];
@@ -122,13 +122,13 @@
                     <ul>
                     <?php
                         $n=1;
-                        $sql = "SELECT * FROM starrank";
+                        $sql = "SELECT * FROM starrank ORDER BY avg DESC";
                         $res = mysqli_query($mysqli, $sql);
                         while($newArray = mysqli_fetch_array($res)){
                             $restName = $newArray['restName'];
                             $avg = $newArray['avg'];
                             echo "<li>".$n++."위<br/>
-                            <p>".$restName." (".$avg."개)</p>
+                            <p>".$restName." (".$avg."점)</p>
                             </li>";
                         }
                         ?>
