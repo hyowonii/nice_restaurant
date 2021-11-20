@@ -28,6 +28,7 @@ aside div input{
     margin: 10px auto;
 }
 section{
+    width:85%;
     float: left;
     margin: 20px auto;
 }
@@ -46,7 +47,7 @@ dt{float: left;}
     display: inline;
 }
 .dong{
-    width: 1000px;
+    width: 100%;
 }
 .dong-gangnam{
     display:none;

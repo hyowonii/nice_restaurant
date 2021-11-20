@@ -22,11 +22,11 @@
             display: inline-block;
         }
     </style>
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="main.css?after">
 </head>
 <body>
     <header>
-        <h1><a href="/main.php"><i class="fas fa-utensils"></i> 웹사이트 이름</a></h1>
+        <h1><a href="/main.php"><i class="fas fa-utensils"></i> 모음</a></h1>
     <nav>
     <form class = "searchbar" action="searchRecord.php" method="post">
         <div>
@@ -78,7 +78,7 @@
                             $guCode = $newArray['guCode'];
                             echo "<form action='searchlist.php' method='post'>";
                             echo "<input type = 'hidden' name = 'dong' value ='".$dongName."'>";
-                            echo "<input type = 'submit' value = '".$dongName."' style = 'margin-right: 4px;'></form>";
+                            echo "<input type = 'submit' value = '".$dongName."' style = 'margin-right: 4px; margin-bottom: 4px;'></form>";
                         }
                     }
                 ?>
@@ -97,7 +97,7 @@
                             $guCode = $newArray['guCode'];
                             echo "<form action='searchlist.php' method='post'>";
                             echo "<input type = 'hidden' name = 'dong' value ='".$dongName."'>";
-                            echo "<input type = 'submit' value = '".$dongName."' style = 'margin-right: 4px;'></form>";
+                            echo "<input type = 'submit' value = '".$dongName."' style = 'margin-right: 4px; margin-bottom: 4px;'></form>";
                         }
                     }
                 ?>
@@ -116,7 +116,7 @@
                             $guCode = $newArray['guCode'];
                             echo "<form action='searchlist.php' method='post'>";
                             echo "<input type = 'hidden' name = 'dong' value ='".$dongName."'>";
-                            echo "<input type = 'submit' value = '".$dongName."' style = 'margin-right: 4px;'></form>";
+                            echo "<input type = 'submit' value = '".$dongName."' style = 'margin-right: 4px; margin-bottom: 4px;'></form>";
                         }
                     }
                 ?>
@@ -136,7 +136,7 @@
                             $guCode = $newArray['guCode'];
                             echo "<form action='searchlist.php' method='post'>";
                             echo "<input type = 'hidden' name = 'dong' value ='".$dongName."'>";
-                            echo "<input type = 'submit' value = '".$dongName."' style = 'margin-right: 4px;'></form>";
+                            echo "<input type = 'submit' value = '".$dongName."' style = 'margin-right: 4px; margin-bottom: 4px;'></form>";
                         }
                     }
                 ?>
@@ -155,7 +155,7 @@
                             $guCode = $newArray['guCode'];
                             echo "<form action='searchlist.php' method='post'>";
                             echo "<input type = 'hidden' name = 'dong' value ='".$dongName."'>";
-                            echo "<input type = 'submit' value = '".$dongName."' style = 'margin-right: 4px;'></form>";
+                            echo "<input type = 'submit' value = '".$dongName."' style = 'margin-right: 4px; margin-bottom: 4px;'></form>";
                         }
                     }
                 ?>

@@ -31,7 +31,7 @@
 </head>
 <body>
 <header>
-    <h1><a href="/main.php">웹사이트 이름</a></h1>
+    <h1><a href="/main.php">모음</a></h1>
     <nav><h4>
         <?php
     $mysqli = mysqli_connect("localhost", "team08", "team08", "team08");
@@ -60,10 +60,12 @@
     <div class="list_result">
     <div class="result_box">
         <?php
+        $n=1;
             while($newArray=mysqli_fetch_array($res, MYSQLI_ASSOC)){
                 $restName = $newArray['restName'];
                 $restType = $newArray['restType'];
                 $restAddr = $newArray['restAddr'];
+                echo "<b>".$n++.".</b>";
                 echo "<form action = 'restaurant_detail.php' method ='post'>";
                 echo "<input type = 'hidden' name = 'restName' value = '".$restName."'>";
                 echo "<p><input type = 'submit' class='info_name' value = '".$restName."'>";

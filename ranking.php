@@ -17,19 +17,6 @@
         $sql_r = "SELECT restName,COUNT(restName) as cnt FROM review GROUP BY restName ORDER BY cnt DESC limit 10";
         $res_r = mysqli_query($mysqli, $sql_r);
 
-<<<<<<< HEAD
-        $reviewRank=[];
-        $rank = 0;
-        if ($res_r)
-        while($rank < 10){
-            $reviewRank[$rank++] = mysqli_fetch_array($res_r);
-        };
-
-        // 업소명과 리뷰개수 출력
-        function printReviewRank($rank){
-            if(isset($rank)){
-                echo $rank['restName']." (".$rank['cnt']."개)";
-=======
         
         while($reviewRank = mysqli_fetch_array($res_r)){
             $searchKeyword = $reviewRank['restName'];
@@ -39,7 +26,6 @@
             $res = mysqli_query($mysqli, $sql);
             if($res->num_rows > 0){
                 continue;
->>>>>>> f33f2c6183071a4270b0efb3aeed53dd0f610e50
             } else {
                 $sql_rank = "INSERT INTO reviewrank (searchKeyword, cnt) VALUES ('$searchKeyword', '$cnt')";
                 mysqli_query($mysqli, $sql_rank);
@@ -67,19 +53,6 @@
         $sql_s = "SELECT restName,AVG(starPoint) as avg FROM review GROUP BY restName ORDER BY avg DESC limit 10";
         $res_s = mysqli_query($mysqli, $sql_s);
 
-<<<<<<< HEAD
-        $starRank=[];
-        $rank=0;
-        if($res_s)
-        while($rank < 10){
-            $starRank[$rank++] = mysqli_fetch_array($res_s);
-        };
-
-        // 업소명과 별점평균 출력
-        function printStarRank($rank){
-            if(isset($rank)){
-                echo $rank['restName']." (".$rank['avg']."점)";
-=======
         while($reviewRank = mysqli_fetch_array($res_s)){
             $restName = $reviewRank['restName'];
             $avg = $reviewRank['avg'];
@@ -88,7 +61,6 @@
             $res = mysqli_query($mysqli, $sql);
             if($res->num_rows > 0){
                 continue;
->>>>>>> f33f2c6183071a4270b0efb3aeed53dd0f610e50
             } else {
                 $sql_rank = "INSERT INTO starrank (restName, avg) VALUES ('$restName', '$avg')";
                 mysqli_query($mysqli, $sql_rank);
@@ -112,7 +84,7 @@
         ?>
 
         <div class="main_content">
-            <h1><a href="main.php"><i class="fas fa-utensils"></i> 웹페이지 이름</a></h1>
+            <h1><a href="main.php"><i class="fas fa-utensils"></i> 모음</a></h1>
             <h2>모범음식점 Ranking</h2>
             <div class="rank">
                 <div id="res_cnt">

@@ -4,7 +4,41 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
     <title>My Page</title>
+    <style>
+        .main_content{
+            float: left;
+            width: 80%;
+        }
+        h1 a[href]{
+            color: orange;
+            text-decoration-line: none;
+        }
+        #line{
+            display: block;
+            width:1px;
+            background-color: gray;
+            position:absolute;
+            top:0;
+            bottom:0;
+            right: 20%;
+        }
+
+        #menu{
+            float: right;
+        }
+
+        .mymenu{
+            float: right;
+            width: 200px;
+        }
+
+        .mymenu input{
+            width: 100px;
+            margin: 10px;
+        }
+    </style>
     <?php include "header.php"?>
     <script>
     
@@ -37,6 +71,8 @@
     </script>
 </head>
 <body>
+<div class="main_content">
+<h1><a href="main.php"><i class="fas fa-utensils"></i> 모음</a></h1>
     <?php if(!$id){  ?>
         <script> 
             alert("로그인하세요.");
@@ -59,6 +95,17 @@
         <select id="subSelect" name="sub" onchange="this.form.submit()"></select>
     </form>
     </div>
+    </div>
+    <div id="line"></div>
+
+    <form id='menu'>
+        <div class="mymenu">
+            <input type="button" value="마이페이지" onclick="location.href='mypage.php'">
+            <input type="button" value="리뷰" onclick="location.href='review2.php'">
+            <input type="button" value="착한가격식당" onclick="location.href='kind_price2.php'">
+            <input type="button" value="순위" onclick="location.href='ranking.php'">
+        </div>
+    </form>
     
 </body>
 </html>

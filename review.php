@@ -83,7 +83,7 @@
                 echo "
                 <div class='review'>
                 <div id='reviewContent'>
-                <b>".$newArray['restName']."</b> [ ID: ".$newArray['id']." <i>작성일자: ".$newArray['date']."</i>
+                <b>".$newArray['restName']."</b> [ ID: ".$newArray['id']." ] <i>작성일자: ".$newArray['date']."</i>
                 <br/>".$newArray['starPoint']."</br/>".$newArray['reviewDetail']."<br/>
                 </div>
                 </div>
