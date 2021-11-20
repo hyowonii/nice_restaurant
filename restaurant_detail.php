@@ -5,7 +5,39 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
     <title>Restaurant Detail</title>
+    <style>
+      .main_content{
+    float: left;
+    width: 80%;
+}
+      h1 a[href]{
+    color: orange;
+    text-decoration-line: none;
+}
+#line{
+    display: block;
+    width:1px;
+    background-color: gray;
+    position:absolute;
+    top:0;
+    bottom:0;
+    right: 20%;
+}
+
+.mymenu{
+    float: right;
+    width: 200px;
+    
+}
+
+.mymenu input{
+    width: 100px;
+    margin: 10px;
+}
+
+    </style>
     <?php include "header.php";
         include "dbconnect.php";
         $restName=$_POST['restName'];
@@ -53,6 +85,8 @@
       </script>
 </head>
 <body>
+<div class="main_content">
+<h1><a href="main.php"><i class="fas fa-utensils"></i> 모음</a></h1>
     <div id="main"><h1>Restaurant: <?=$restName?> </h1>
     <h2>★: <?=$star?></h2>
     <h4>main menu: <?=$main?></h4> 
@@ -61,20 +95,24 @@
     <h4>business: <?=$type?></h4>
     <h4>since: <?=$since?></h4>
     </div>
-    <?php if(!$id){  ?>
+    
+    <div class="review">
+      <div id="review">
+        <h1>REVIEW</h1>
+      </div>
+      <?php if(!$id){  ?>
       <div>
         <label for="forReview">Write your review:</label><br>
         <span class="star">
             ★★★★★
             <span>★★★★★</span>
             <input type="range" name="star"  value="1" step="1" min="0" max="10">
-          </span>
+        </span>
             <script>const drawStar = (target) => {
                 document.querySelector(`.star span`).style.width = `${target.value * 10}%`;
             }</script>
-        <p><textarea readonly rows="7" cols="100">로그인 후 이용해주세요.
-        </textarea></p>
-    </div>
+        <p><textarea readonly rows="7" cols="100">로그인 후 이용해주세요.</textarea></p>
+      </div>
     <?php }else{ ?>
       <div>
         <form action="restaurant_detail(c).php?id=<?=$id?>" method="post" id="reviewForm" name="reviewForm">
@@ -103,10 +141,6 @@
         </form>
     </div>
     <?php }?>
-    <div class="review">
-      <div id="review">
-        <h1>REVIEW</h1>
-      </div>
       <?php
         $sql=$sql="SELECT * FROM review WHERE restName='$restName'";
         $res=mysqli_query($mysqli,$sql);
@@ -122,5 +156,17 @@
         mysqli_close($mysqli);   
       ?>
     </div>
+    </div>
+
+    <div id="line"></div>
+
+        <form>
+            <div class="mymenu">
+                <input type="button" value="마이페이지" onclick="location.href='mypage.php'">
+                <input type="button" value="리뷰" onclick="location.href='review2.php'">
+                <input type="button" value="착한가격식당" onclick="location.href='kind_price2.php'">
+                <input type="button" value="순위" onclick="location.href='ranking.php'">
+            </div>
+        </form>
     </body>
 </html>

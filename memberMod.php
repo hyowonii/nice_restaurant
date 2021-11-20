@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <title>SIGN_UP</title>
     <?php include "header.php";?>
+    <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
+    <style>h1 a[href]{
+        color: orange;
+        text-decoration-line: none;
+    }</style>
     <script>
         // 서밋 버튼 이미지 클릭시
         function modify(){
@@ -40,6 +45,7 @@
  
 </head>
 <body>
+<h1 id="b"><a href="main.php"><i class="fas fa-utensils"></i> 모음</a></h1>
     <?php if(!$id){  ?>
         <script> 
             alert("로그인하세요.");

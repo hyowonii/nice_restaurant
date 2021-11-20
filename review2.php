@@ -11,7 +11,7 @@
     </head>
     <body>
         <div class="main_content">
-            <h1><a href="main.php"><i class="fas fa-utensils"></i> 웹페이지 이름</a></h1>
+            <h1><a href="main.php"><i class="fas fa-utensils"></i> 모음</a></h1>
             <form action="review.php" method="post">
                 <h2>Review</h2>
                 <input type="text" name="search" placeholder="업소명을 검색하세요">

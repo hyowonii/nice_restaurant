@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <title>SIGN_UP</title>
     <?php include "header.php";?>
+    <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
+    <style>h1 a[href]{
+        color: orange;
+        text-decoration-line: none;
+    }</style>
     <script>
         // 서밋 버튼 이미지 클릭시
         function delmem(){
@@ -34,6 +39,7 @@
  
 </head>
 <body>
+<h1 id="b"><a href="main.php"><i class="fas fa-utensils"></i> 모음</a></h1>
     <?php if(!$id){  ?>
         <script> 
             alert("로그인하세요.");
@@ -57,7 +63,7 @@
             <div id="join_box">
                 <!-- DB의 member테이블에 저장하는 member_insert.php에 입력값들 전달하도록 -->
                 <form action="deleteMem(c).php?id=<?=$id?>" method="post" name="form">
-                    <h2>회원정보 수정</h2>
+                    <h2>회원정보 탈퇴</h2>
                     <!-- 각 줄마다 라벨, 인풋요소 영역으로 나누어 지므로 col1, col2 클래스지정으로 스타일링 -->
                     <div class="form">
                         <div class="col1">이름</div>

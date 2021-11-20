@@ -2,7 +2,7 @@
     include "dbconnect.php";
     $id= $_GET['id'];
     $pass= $_POST['pass'];
-    $name= $_POST['name'];
+    
     
     $sql= "DELETE FROM member where id='$id'";  
     mysqli_query($mysqli, $sql);
