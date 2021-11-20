@@ -1,5 +1,5 @@
 header{
-    height: 210px;
+    height: 20%;
     margin: auto;
     text-align: center;
 }
@@ -10,19 +10,17 @@ a:hover{
     text-decoration: underline;
 }
 a:active{color: blue;}
-a{text-decoration: none;}
-
-.result_box .info_name{
-    font-size: 18px;
-    color: black;
+a{
+    text-decoration: none;
 }
+
 .result_box .info_category{
     font-size:14px;
     color: #3673ee;
     vertical-align: baseline;
 }
 .result_box .info_address{
-    color: #979797;
+    color: #686868;
 }
 p {
     display: block;
@@ -34,15 +32,16 @@ p {
 #line{
     display: block;
     width:1px;
+    height: 100%;
     background-color: gray;
     position:absolute;
-    top: 210px;
+    top: 20%;
     bottom:0;
-    right: 210px;
+    right: 20%;
 }
 
 aside{
-    width: 210px;
+    width: 20%;
     float: right;
     text-align: center;
 }

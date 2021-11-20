@@ -1,5 +1,5 @@
 header{
-    height: 210px;
+    height: 20%;
     margin: auto;
     text-align: center;
 }
@@ -8,14 +8,15 @@ nav{display: inline-block;}
 #line{
     display: block;
     width:1px;
+    height: 100%;
     background-color: gray;
     position:absolute;
-    top: 210px;
+    top: 20%;
     bottom:0;
-    right: 210px;
+    right: 20%;
 }
 aside{
-    width: 210px;
+    width: 20%;
     float: right;
     text-align: center;
 }
@@ -29,7 +30,8 @@ aside div input{
 }
 section{
     float: left;
-    margin: 20px auto;
+    width: 80%;
+    margin-left: 50px;
 }
 
 a:link{color: blue;}
@@ -45,9 +47,7 @@ dt{float: left;}
 .hot_keyword dd{
     display: inline;
 }
-.dong{
-    width: 1000px;
-}
+
 .dong-gangnam{
     display:none;
 }

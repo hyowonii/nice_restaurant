@@ -5,7 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="searchList.css">
+    <link rel="stylesheet" href="searchlist.css">
+    <style>
+        input[type='submit']{
+            font-size: 20px;
+            background-color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: bolder;
+        }
+        input:hover{
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
 <header>
@@ -38,14 +50,16 @@
     <div class="list_result">
     <div class="result_box">
         <?php
+            $n=1;
             while($newArray=mysqli_fetch_array($res, MYSQLI_ASSOC)){
                 $restName = $newArray['restName'];
                 $restType = $newArray['restType'];
                 $restAddr = $newArray['restAddr'];
+                echo $n++.".";
                 echo "<form action = 'restaurant_detail.php' method ='post'>";
                 echo "<input type = 'hidden' name = 'Rname' value = '".$restName."'>";
                 echo "<p><input type = 'submit' class='info_name' value = '".$restName."'>";
-                echo "<span class = 'info_category'>".$restType."</span></p>";
+                echo "<span class = 'info_category'>".$restType."</span></p></form>";
                 echo "<p class='info_address'>".$restAddr."</p>";
             }
         ?>
