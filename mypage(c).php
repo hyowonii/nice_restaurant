@@ -35,7 +35,7 @@
         $sql="SELECT * from review where id='$id' order by starPoint DESC";
     }else if($sel=="별점낮은순"){
         $sql="SELECT * from review where id='$id' order by starPoint ";
-    }else{
+    }else if($sel1=="business"){
         $sql="SELECT * from review where restType='$sel'&& id='$id' ";
     }
     
@@ -43,9 +43,21 @@
     $newArray=mysqli_fetch_array($res);
     if($newArray){
         echo "<h2 id='search-word'>[ ID: ".$newArray['id']." ]님의 리뷰</h2>";
+        echo "
+            <div class='review'>
+            <div id='reviewContent'>
+            <b>".$newArray['restName']."</b><i>작성일자: ".$newArray['date']."</i>
+            <br/>".$newArray['guName']."&nbsp".$newArray['dongName']."</br/>
+            ".$newArray['restType']."</br/>★:".$newArray['starPoint']."</br/>".$newArray['reviewDetail']."
+            <form action='restaurant_detail.php' method='post'>
+            <x><input type='submit' value='go restaurant'></x>
+            <input type ='hidden' name = 'restName' value = '".$newArray['restName']."'><br/>
+            </form>
+            </div>
+            </div>
+            ";
         while($newArray=mysqli_fetch_array($res)){
             echo "
-            
             <div class='review'>
             <div id='reviewContent'>
             <b>".$newArray['restName']."</b><i>작성일자: ".$newArray['date']."</i>
