@@ -17,7 +17,6 @@
         $sql_r = "SELECT restName,COUNT(restName) as cnt FROM review GROUP BY restName ORDER BY cnt DESC limit 10";
         $res_r = mysqli_query($mysqli, $sql_r);
 
-        
         while($reviewRank = mysqli_fetch_array($res_r)){
             $searchKeyword = $reviewRank['restName'];
             $cnt = $reviewRank['cnt'];
@@ -33,6 +32,7 @@
 
         };
 
+        // reviewrank table에서 상위 10개만 남기고 delete
         $sql = "SELECT * FROM reviewrank ORDER BY cnt DESC";
         $res = mysqli_query($mysqli, $sql);
         $i = 0;
@@ -43,7 +43,7 @@
                 mysqli_query($mysqli, $sql_d);
             }
             $i++;
-        }
+        };
 
         
         
@@ -68,6 +68,7 @@
 
         };
 
+        // starrank table에서 상위 10개만 남기고 delete
         $sql = "SELECT * FROM starrank ORDER BY avg DESC";
         $res = mysqli_query($mysqli, $sql);
         $i = 0;
