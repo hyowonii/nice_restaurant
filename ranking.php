@@ -94,9 +94,9 @@
                         <ul>
                             <li><span class="gTerm">강남구</span><span class="gBar" style="width:100%"><span>382</span></span></li>
                             <li><span class="gTerm">마포구</span><span class="gBar" style="width:30%"><span>115</span></span></li>
-                            <li><span class="gTerm">송파구</span><span class="gBar" style="width:88%"><span>335</span></span></li>
-                            <li><span class="gTerm">용산구</span><span class="gBar" style="width:35%"><span>131</span></span></li>
-                            <li><span class="gTerm">종로구</span><span class="gBar" style="width:25%"><span>94</span></span></li>
+                            <li><span class="gTerm">송파구</span><span class="gBar" style="width:84%"><span>322</span></span></li>
+                            <li><span class="gTerm">용산구</span><span class="gBar" style="width:34%"><span>131</span></span></li>
+                            <li><span class="gTerm">종로구</span><span class="gBar" style="width:23%"><span>89</span></span></li>
                         </ul>
                     </div>
                 </div>
