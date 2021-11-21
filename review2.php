@@ -28,8 +28,8 @@
                     <div class="foodtype">
                         <h3>업태별</h3>
                         <input type="submit" id="korean" value="한식" name="korean"></button>
-                        <input type="submit" id="chinese" value="중식" name="chinese"></button>
-                        <input type="submit" id="japanese" value="경양식일식" name="japanese"></button>
+                        <input type="submit" id="chinese" value="중국식" name="chinese"></button>
+                        <input type="submit" id="japanese" value="일식" name="japanese"></button>
                     </div>
                 </div>
                 

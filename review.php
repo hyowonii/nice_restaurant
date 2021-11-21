@@ -65,13 +65,13 @@
         $res = mysqli_query($mysqli, $sql);
         reviewList($res, '한식');
     }else if(array_key_exists('chinese', $_POST)){
-        $sql="SELECT * FROM review WHERE restType='중식'";
+        $sql="SELECT * FROM review WHERE restType='중국식'";
         $res = mysqli_query($mysqli, $sql);
-        reviewList($res, '중식');
+        reviewList($res, '중국식');
     }else if(array_key_exists('japanese', $_POST)){
-        $sql="SELECT * FROM review WHERE restType='경양식일식'";
+        $sql="SELECT * FROM review WHERE restType='일식'";
         $res = mysqli_query($mysqli, $sql);
-        reviewList($res, '경양식일식');
+        reviewList($res, '일식');
     };
 
     
