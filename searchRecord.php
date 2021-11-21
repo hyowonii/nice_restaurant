@@ -74,7 +74,7 @@
                 echo "<b>".$n++.".</b>";
                 echo "<form action = 'restaurant_detail.php' method ='post'>";
                 echo "<input type = 'hidden' name = 'restName' value = '".$restName."'>";
-                echo "<p><input type = 'submit' class='info_name' value = '".$restName."'>";
+                echo "<p><input type = 'submit' class='info_name' value = '".$restName."'></form>";
                 echo "<span class = 'info_category'>".$restType."</span></p>";
                 echo "<p class='info_address'>".$restAddr."</p>";
             }
